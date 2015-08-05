@@ -9,12 +9,12 @@ $db = new DB ();
 session_start ();
 
 /*echo $_GET ['FNum'].$_GET ['FRDate'].$_GET ['FRTime'].$_GET ['FStop'];die;*/
-if (isset ( $_SESSION ['emp_number'] )) {
+if (isset ( $_SESSION['user']['number'] )) {
 
 	if(empty ( $_GET ['FNum'] ) || empty ( $_GET ['FRDate'] ) || empty ( $_GET ['FRTime'] ) || empty ( $_GET ['FStop'] )){
         echo 2; // 请检查空项
 	}else{
-	    $emp_number = $_SESSION ['emp_number'];
+	    $emp_number = $_SESSION['user']['number'];
 
         $FNumber=$_GET['FNumber'];//提交人编号
         $FCompanyID=$_GET['FCompanyID'];
