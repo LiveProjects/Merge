@@ -1,0 +1,196 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  background-color: rgb(96,192,197);
+}
+#logo{
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  width: 60px;
+  height: 15px;
+  img{
+    width: 100%;
+    height: 100%;
+  }
+}
+#header{
+  width: 90%;
+  margin: 30px auto;
+  h2{
+    width: 100%;
+    text-align:center;
+  }
+}
+#outwrap{
+  width: 90%;
+  min-height: 200px;
+  margin: 0 auto;
+  /*background-color: #b92c28;*/
+
+  >button{
+    display: block;
+    width: 126px;
+    height: 44px;
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 44px;
+    font-weight: bold;
+    font-size: 1.4em;
+    background-color: #3399ff;
+    color: white;
+  }
+}
+#fixname,#fixtime,#fixdate{
+  width: 100%;
+  margin-top: 30px;
+  span{
+    display: block;
+    width: 80px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    background-color: white;
+    border-radius: 6px 6px 0 0;
+    font-weight: bold;
+    position: relative;
+    b{
+      position: absolute;
+      width: 220px;
+      left: 120%;
+      top: 0;
+      font-size: 1.3rem;
+      color: white;
+      text-align: left;
+    }
+  }
+  ul{
+    width: 100%;
+    overflow: hidden;
+    border-radius: 0 10px 0 0;
+    li{
+      width: 25%;
+      height: 36px;
+      min-width: 60px;
+      list-style: none;
+      float: left;
+      text-align: center;
+      line-height: 36px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      &:active{
+        background-color: deeppink;
+      }
+    }
+  }
+
+}
+#fixname{
+  width: 100%;
+  margin-top: 40px;
+  span{
+    display: block;
+    width: 80px;
+    height: 36px;
+    text-align: center;
+    line-height: 36px;
+    background-color: white;
+    border-radius: 6px 6px 0 0;
+    font-weight: bold;
+    position: relative;
+    b{
+      position: absolute;
+      width: 220px;
+      left: 120%;
+      top: 0;
+      font-size: 1.3rem;
+      color: white;
+      text-align: left;
+    }
+  }
+  ol{
+    width: 100%;
+    overflow: hidden;
+    border-radius: 0 10px 0 0;
+    background-color: white;
+    li{
+      list-style: none;
+      float: left;
+      width: 25%;
+      height: 36px;
+      min-width: 60px;
+      list-style: none;
+      float: left;
+      text-align: center;
+      line-height: 36px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      &:active{
+        background-color: deeppink;
+      }
+    }
+  }
+  ul{
+    width: 100%;
+    overflow: hidden;
+    border-radius: 0 10px 0 0;
+    background-color: white;
+    display: none;
+    li{
+      list-style: none;
+      float: left;
+      width: 25%;
+      height: 36px;
+      min-width: 60px;
+      list-style: none;
+      float: left;
+      text-align: center;
+      line-height: 36px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      &:active{
+        background-color: deeppink;
+      }
+    }
+  }
+}
+#parkList{
+  position: absolute;
+  width: 100px;
+  top: 0;
+  -webkit-transition: ease-out 0.3s;
+  -moz-transition: ease-out 0.3s;
+  -ms-transition: ease-out 0.3s;
+  -o-transition: ease-out 0.3s;
+  transition: ease-out 0.3s;
+  right: -100px;
+  ul{
+    width: 100%;
+
+    overflow-y: scroll;
+    li{
+      width: 100%;
+      height: 46px;
+      list-style: none;
+      text-align: center;
+      line-height: 46px;
+      font-size: 1rem;
+      font-weight: bold;
+      opacity: 0.8;
+      background-color: #e38d13;
+      &:active{
+        opacity: 1;
+      }
+    }
+  }
+}
+.showlist{
+  right: 0!important;
+}

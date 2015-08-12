@@ -1,0 +1,201 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #60c0c5;
+}
+#logo {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  width: 60px;
+  height: 15px;
+}
+#logo img {
+  width: 100%;
+  height: 100%;
+}
+#header {
+  width: 90%;
+  margin: 30px auto;
+}
+#header h2 {
+  width: 100%;
+  text-align: center;
+}
+#outwrap {
+  width: 90%;
+  min-height: 200px;
+  margin: 0 auto;
+  /*background-color: #b92c28;*/
+}
+#outwrap > button {
+  display: block;
+  width: 126px;
+  height: 44px;
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  border-radius: 4px;
+  text-align: center;
+  line-height: 44px;
+  font-weight: bold;
+  font-size: 1.4em;
+  background-color: #3399ff;
+  color: white;
+}
+#fixname,
+#fixtime,
+#fixdate {
+  width: 100%;
+  margin-top: 30px;
+}
+#fixname span,
+#fixtime span,
+#fixdate span {
+  display: block;
+  width: 80px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  background-color: white;
+  border-radius: 6px 6px 0 0;
+  font-weight: bold;
+  position: relative;
+}
+#fixname span b,
+#fixtime span b,
+#fixdate span b {
+  position: absolute;
+  width: 220px;
+  left: 120%;
+  top: 0;
+  font-size: 1.3rem;
+  color: white;
+  text-align: left;
+}
+#fixname ul,
+#fixtime ul,
+#fixdate ul {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 0 10px 0 0;
+}
+#fixname ul li,
+#fixtime ul li,
+#fixdate ul li {
+  width: 25%;
+  height: 36px;
+  min-width: 60px;
+  list-style: none;
+  float: left;
+  text-align: center;
+  line-height: 36px;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+#fixname ul li:active,
+#fixtime ul li:active,
+#fixdate ul li:active {
+  background-color: deeppink;
+}
+#fixname {
+  width: 100%;
+  margin-top: 40px;
+}
+#fixname span {
+  display: block;
+  width: 80px;
+  height: 36px;
+  text-align: center;
+  line-height: 36px;
+  background-color: white;
+  border-radius: 6px 6px 0 0;
+  font-weight: bold;
+  position: relative;
+}
+#fixname span b {
+  position: absolute;
+  width: 220px;
+  left: 120%;
+  top: 0;
+  font-size: 1.3rem;
+  color: white;
+  text-align: left;
+}
+#fixname ol {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 0 10px 0 0;
+  background-color: white;
+}
+#fixname ol li {
+  width: 25%;
+  height: 36px;
+  min-width: 60px;
+  list-style: none;
+  float: left;
+  text-align: center;
+  line-height: 36px;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+#fixname ol li:active {
+  background-color: deeppink;
+}
+#fixname ul {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 0 10px 0 0;
+  background-color: white;
+  display: none;
+}
+#fixname ul li {
+  width: 25%;
+  height: 36px;
+  min-width: 60px;
+  list-style: none;
+  float: left;
+  text-align: center;
+  line-height: 36px;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+#fixname ul li:active {
+  background-color: deeppink;
+}
+#parkList {
+  position: absolute;
+  width: 100px;
+  top: 0;
+  -webkit-transition: ease-out 0.3s;
+  -moz-transition: ease-out 0.3s;
+  -ms-transition: ease-out 0.3s;
+  -o-transition: ease-out 0.3s;
+  transition: ease-out 0.3s;
+  right: -100px;
+}
+#parkList ul {
+  width: 100%;
+  overflow-y: scroll;
+}
+#parkList ul li {
+  width: 100%;
+  height: 46px;
+  list-style: none;
+  text-align: center;
+  line-height: 46px;
+  font-size: 1rem;
+  font-weight: bold;
+  opacity: 0.8;
+  background-color: #e38d13;
+}
+#parkList ul li:active {
+  opacity: 1;
+}
+.showlist {
+  right: 0!important;
+}

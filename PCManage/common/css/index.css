@@ -1,0 +1,48 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+#banner {
+  padding: 0;
+  margin: 0;
+  height: 400px;
+  position: relative;
+}
+#banner > ul {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+#banner > ul li {
+  list-style: none;
+  height: 100%;
+  float: left;
+  -webkit-transition: ease-out 1.4s;
+  -moz-transition: ease-out 1.4s;
+  -ms-transition: ease-out 1.4s;
+  -o-transition: ease-out 1.4s;
+  transition: ease-out 1.4s;
+}
+#banner > ul li img {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+#banner > ol {
+  width: 180px;
+  height: 10px;
+  overflow: hidden;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin: 10px auto;
+}
+#banner > ol li {
+  width: 50px;
+  height: 6px;
+  background-color: #60c0c5;
+  list-style: none;
+  float: left;
+  margin-right: 10px;
+}

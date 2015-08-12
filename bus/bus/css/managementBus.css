@@ -1,0 +1,169 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #60c0c5;
+}
+#logo {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  width: 60px;
+  height: 15px;
+}
+#logo img {
+  width: 100%;
+  height: 100%;
+}
+#header {
+  width: 90%;
+  margin: 30px auto;
+}
+#header h2 {
+  width: 100%;
+  text-align: center;
+}
+#outwrap {
+  width: 94%;
+  min-height: 200px;
+  margin: 0 auto;
+}
+#maname {
+  width: 98%;
+  margin: 0 auto;
+  height: 44px;
+  position: relative;
+  margin-top: 40px;
+}
+#maname span {
+  /*display: block;*/
+  position: absolute;
+  width: 80px;
+  height: 44px;
+  top: 0;
+  left: 10px;
+  text-align: left;
+  line-height: 44px;
+  font-size: 1.4rem;
+  color: #888888;
+  font-weight: bolder;
+  -webkit-transition: ease-out 0.3s;
+  -moz-transition: ease-out 0.3s;
+  -ms-transition: ease-out 0.3s;
+  -o-transition: ease-out 0.3s;
+  transition: ease-out 0.3s;
+}
+#maname input {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+#factory {
+  width: 98%;
+  margin: 0 auto;
+  height: 44px;
+  position: relative;
+}
+#factory input {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-indent: 10px;
+}
+#mainShow {
+  width: 100%;
+  margin: 0 auto;
+}
+#mainShow ul {
+  width: 100%;
+}
+#mainShow ul li {
+  width: 100%;
+  min-height: 200px;
+  list-style: none;
+  margin-top: 20px;
+  border: 1px dotted #000000;
+  background-color: white;
+}
+#mainShow ul li > div {
+  width: 100%;
+  height: 50px;
+}
+#mainShow ul li > div label {
+  vertical-align: middle;
+  line-height: 50px;
+  text-indent: 6px;
+  margin-left: 10px;
+  font-weight: bold;
+}
+#mainShow ul li > div label input {
+  border: none;
+  outline: none;
+  font-size: 1.4rem;
+  vertical-align: middle;
+}
+#mainShow ul li > span {
+  display: block;
+  width: 100%;
+  height: 100px;
+}
+#mainShow ul li > span div {
+  width: 50%;
+  height: 100%;
+  float: left;
+}
+#mainShow ul li > span div:hover {
+  background-color: #000080;
+}
+#mainShow ul li > span div i {
+  display: block;
+  width: 100%;
+  height: 32px;
+  background-color: blueviolet;
+  text-align: center;
+  line-height: 32px;
+  font-style: normal;
+}
+#mainShow ul li > span div p {
+  display: block;
+  width: 100%;
+  height: 68px;
+  background-color: #777777;
+  text-align: center;
+  line-height: 68px;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+#mainShow ul li > p {
+  width: 100%;
+  height: 50px;
+}
+#mainShow ul li > p b {
+  display: block;
+  width: 50%;
+  height: 100%;
+  float: left;
+  position: relative;
+  /*&:hover{
+            background-color: #222222;
+          }*/
+}
+#mainShow ul li > p b button {
+  display: block;
+  width: 70%;
+  height: 32px;
+  margin: 0 auto;
+  margin-top: 9px;
+  text-align: center;
+  line-height: 32px;
+  font-size: 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+#mainShow ul li > p b button:first-child {
+  background-color: #c3325f;
+}
+#mainShow ul li > p b button:last-child {
+  background-color: #39f;
+}

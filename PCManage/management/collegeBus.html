@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../common/css/header.css"/>
+    <link rel="stylesheet" href="../common/css/footer.css"/>
+    <link rel="stylesheet" href="../tool/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../common/css/font-awesome.css"/>
+    <link rel="stylesheet" href="css/college.css"/>
+    <title>Hisense</title>
+</head>
+<body>
+<div class="container-fluid">
+    <div id="collegemain" class="col-md-7 col-md-offset-1">
+        <div class="input-group">
+            <span class="move">姓名</span>
+            <input type="text" id="collegemain1" class="form-control" placeholder="提交人姓名" disabled aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group">
+            <span class="move">公司</span>
+            <input type="text" id="collegemain2" class="form-control" placeholder="所在公司" disabled aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group">
+            <span class="move">人数</span>
+            <input type="text" id="collegemain3" class="form-control" placeholder="人数" aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group">
+            <!--<input type="text" id="collegemain4" class="form-control" placeholder="预约日期"  aria-describedby="basic-addon1">-->
+            <span class="move">班车日期</span>
+
+            <span class="chats"><i id="year">2015</i>
+                <ul>
+                    <li>2015</li>
+                    <li>2016</li>
+                    <li>2017</li>
+                    <li>2018</li>
+                    <li>2019</li>
+                    <li>2020</li>
+                </ul>
+            </span><b>—</b>
+            <span class="chats"><i id="month">8</i>
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                </ul>
+            </span><b>—</b>
+            <span class="chats"><i id="day">9</i>
+                <ul>
+                    <li>11</li>
+                    <li>21</li>
+                    <li>13</li>
+                    <li>14</li>
+                    <li>15</li>
+                    <li>16</li>
+                </ul>
+            </span>
+        </div>
+        <div class="input-group">
+            <span class="move">班车时间</span>
+
+            <span class="chats"><i id="hour">9</i>
+                <ul>
+                    <li>8</li>
+                    <li>9</li>
+                    <li>10</li>
+                    <li>11</li>
+                    <li>12</li>
+                    <li>13</li>
+                </ul>
+            </span><b>:</b>
+            <span class="chats"><i id="ins">30</i>
+                <ul>
+                    <li>10</li>
+                    <li>20</li>
+                    <li>30</li>
+                    <li>40</li>
+                    <li>50</li>
+                    <li>60</li>
+                </ul>
+            </span>
+        </div>
+        <div class="input-group">
+            <span class="move">站点</span>
+            <input type="text" id="collegemain6" class="form-control" placeholder="站点" aria-describedby="basic-addon1">
+        </div>
+
+
+        <div class="input-group" style="display: none">
+            <input type="text" id="collegemain7" class="form-control" placeholder="操作日期" aria-describedby="basic-addon1">
+        </div>
+
+        <div>
+            <button class="btn btn-success" id="collegesubmit"><i class="fa fa-spinner fa-spin"></i>提交</button>
+            <button class="btn btn-danger" type="reset">重置</button>
+        </div>
+    </div>
+    <div id="slideright" class="col-md-2 col-md-offset-1">
+        <ul>
+            <li>a</li>
+            <li>ads</li>
+            <li>adwaw</li>
+            <li>双山</li>
+        </ul>
+    </div>
+</div>
+
+</body>
+<script src="../tool/jquery/dist/jquery.js"></script>
+<script src="../tool/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../common/js/headerwarp.js"></script>
+<script src="js/collegeBus.js"></script>
+</html>

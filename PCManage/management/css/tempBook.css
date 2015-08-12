@@ -1,0 +1,127 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+#collegemain {
+  background-color: #60c0c5;
+  /*width: 50%;*/
+  min-width: 400px;
+  min-height: 400px;
+}
+#collegemain > div {
+  height: 60px;
+  width: 90%;
+  margin: 36px auto;
+  position: relative;
+}
+#collegemain > div input {
+  height: 100%;
+  margin-top: 10px;
+  border-radius: 4px;
+}
+#collegemain > div button {
+  width: 100px;
+  float: right;
+  margin-right: 30px;
+}
+#collegemain > div label {
+  display: block;
+  width: 30%;
+  height: 30px;
+  line-height: 30px;
+  float: left;
+  /*background-color: #ffffff;*/
+  border-radius: 10px;
+}
+#collegemain > div label input {
+  display: block;
+  height: 30px;
+  width: 30px;
+  float: left;
+  margin: 0 10px;
+}
+#collegemain > div > span {
+  position: relative;
+}
+#collegemain > div > span:nth-child(1) {
+  width: 120px;
+  position: absolute;
+  left: 0;
+  top: -44px;
+  display: block;
+  height: 100%;
+  line-height: 66px;
+  font-weight: bold;
+  color: white;
+  z-index: 10;
+}
+#collegemain > div .chats {
+  display: block;
+  width: 28%;
+  margin: 0 1%;
+  height: 80%;
+  background-color: white;
+  float: left;
+  text-align: center;
+  line-height: 46px;
+  cursor: pointer;
+  font-size: 1.6rem;
+  margin-top: 10px;
+}
+#collegemain > div .chats:first-child {
+  margin-left: 0;
+}
+#collegemain > div b {
+  float: left;
+  width: 3%;
+  font-size: 2rem;
+  text-align: center;
+  display: block;
+  line-height: 46px;
+  height: 46px;
+  margin-top: 10px;
+}
+#collegemain > div ul {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  display: none;
+  z-index: 11;
+}
+#collegemain > div ul li {
+  list-style: none;
+  height: 40px;
+  width: 100%;
+  text-align: center;
+  line-height: 40px;
+  background-color: #ffffff;
+}
+#collegemain > div ul li:hover {
+  background-color: #B2B2B2;
+}
+#slideright {
+  background-color: #60c0c5;
+  visibility: hidden;
+  -webkit-transition: ease-out 0.36s;
+  -moz-transition: ease-out 0.36s;
+  -ms-transition: ease-out 0.36s;
+  -o-transition: ease-out 0.36s;
+  transition: ease-out 0.36s;
+}
+#slideright ul {
+  width: 100%;
+}
+#slideright ul li {
+  height: 50px;
+  width: 100%;
+  line-height: 50px;
+  text-align: center;
+  font-weight: bold;
+  color: #ffffff;
+  font-size: 2rem;
+  list-style: none;
+  opacity: 0.4;
+}
+#slideright ul li:hover {
+  opacity: 1;
+}

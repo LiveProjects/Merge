@@ -1,0 +1,174 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  background-color: rgb(96,192,197);
+}
+#logo{
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  width: 60px;
+  height: 15px;
+  img{
+    width: 100%;
+    height: 100%;
+  }
+}
+#header{
+  width: 90%;
+  margin: 30px auto;
+  h2{
+    width: 100%;
+    text-align:center;
+  }
+}
+#outwrap{
+  width: 94%;
+  min-height: 200px;
+  margin: 0 auto;
+}
+#maname{
+  width: 98%;
+  margin: 0 auto;
+  height: 44px;
+  position: relative;
+  margin-top: 40px;
+  span{
+    /*display: block;*/
+    position: absolute;
+    width: 80px;
+    height: 44px;
+    top: 0;
+    left: 10px;
+    text-align: left;
+    line-height: 44px;
+    font-size: 1.4rem;
+    color: #888888;
+    font-weight: bolder;
+    -webkit-transition: ease-out 0.3s;
+    -moz-transition: ease-out 0.3s;
+    -ms-transition: ease-out 0.3s;
+    -o-transition: ease-out 0.3s;
+    transition: ease-out 0.3s;
+  }
+  input{
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
+#factory{
+  width: 98%;
+  margin: 0 auto;
+  height: 44px;
+  position: relative;
+  input{
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-indent: 10px;
+  }
+}
+#mainShow{
+  width: 100%;
+  margin: 0 auto;
+  ul{
+    width: 100%;
+    li{
+      width: 100%;
+      min-height: 200px;
+      list-style: none;
+      margin-top: 20px;
+      border:1px dotted #000000;
+      background-color: white;
+      >div{
+        width: 100%;
+        height: 50px;
+        label{
+          vertical-align: middle;
+          line-height: 50px;
+          text-indent: 6px;
+          margin-left: 10px;
+          font-weight: bold;
+          input{
+            border: none;
+            outline: none;
+            font-size: 1.4rem;
+            vertical-align: middle;
+          }
+        }
+      }
+      >span{
+        display: block;
+        width: 100%;
+        height: 100px;
+        div{
+          width: 50%;
+          height: 100%;
+          float: left;
+          &:hover{
+            background-color: #000080;
+          }
+          i{
+            display: block;
+            width: 100%;
+            height: 32px;
+            background-color: blueviolet;
+            text-align: center;
+            line-height: 32px;
+            font-style: normal;
+          }
+          p{
+            display: block;
+            width: 100%;
+            height: 68px;
+            background-color: #777777;
+            text-align: center;
+            line-height: 68px;
+            font-weight: bold;
+            font-size: 1.4rem;
+          }
+        }
+      }
+      >p{
+        width: 100%;
+        height: 50px;
+        b{
+          display: block;
+          width: 50%;
+          height: 100%;
+          float: left;
+          position: relative;
+          /*&:hover{
+            background-color: #222222;
+          }*/
+          button{
+            display: block;
+            width: 70%;
+            height: 32px;
+            margin: 0 auto;
+            margin-top: 9px;
+            text-align: center;
+            line-height: 32px;
+            font-size: 1.2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            &:first-child{
+              background-color: #c3325f;
+
+            }
+            &:last-child{
+              background-color: #39f;
+
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.ft(){
+  text-align: center;
+}

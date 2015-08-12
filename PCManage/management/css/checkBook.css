@@ -1,0 +1,90 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+#checkBookmain > span {
+  display: block;
+  height: 104px;
+  width: 100%;
+  border-radius: 20px 0;
+  background-color: #60c0c5;
+  min-width: 500px;
+}
+#checkBookmain > span label {
+  display: block;
+  width: 90%;
+  margin: 0 auto;
+  height: 50px;
+  vertical-align: middle;
+  font-size: 1.8rem;
+  line-height: 50px;
+}
+#checkBookmain > span label:first-child {
+  border-bottom: 4px solid #444444;
+}
+#checkBookmain > span label input {
+  height: 70%;
+  vertical-align: middle;
+  line-height: 35px;
+  text-indent: 20px;
+  border: none;
+  background-color: #60c0c5;
+  color: #ffffff;
+  font-weight: bold;
+}
+#checkBookmain ul {
+  width: 100%;
+}
+#checkBookmain ul li {
+  list-style: none;
+  width: 100%;
+  height: 200px;
+  background-color: #60c0c5;
+  border-radius: 0 20px;
+  margin-top: 20px;
+  min-width: 500px;
+  position: relative;
+}
+#checkBookmain ul li > div {
+  height: 50px;
+  width: 100%;
+  overflow: hidden;
+}
+#checkBookmain ul li > div:hover {
+  background-color: #c3325f;
+}
+#checkBookmain ul li > div label {
+  line-height: 50px;
+  margin-left: 60px;
+  font-size: 1.6rem;
+}
+#checkBookmain ul li > div input {
+  height: 60%;
+  border: none;
+  font-weight: bold;
+  text-indent: 20px;
+}
+#checkBookmain ul li > div > button {
+  float: right;
+  margin-right: 30px;
+  width: 90px;
+  margin-top: 10px;
+}
+#checkBookmain ul li ol {
+  display: block;
+  position: absolute;
+  top: 100%;
+  height: 200px;
+  width: 100%;
+  border-radius: 20px 0;
+  background-color: #c3325f;
+  z-index: 10;
+}
+#checkBookmain ul li ol li {
+  width: 100%;
+  list-style: none;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
