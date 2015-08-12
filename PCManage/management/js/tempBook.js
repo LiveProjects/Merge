@@ -45,7 +45,7 @@ window.onload=function(){
 
         var date=$("#year").text()+"-"+$("#month").text()+"-"+$("#day").text();
         var time=$("#hour").text()+":"+$("#ins").text();
-        var FType=$("#radioline label input:radio[checked='checked']").val();
+        var FType=$("#radioline label input:radio:checked").val();
 
         //alert(gl.collegemain1.value);
         $.ajax({
