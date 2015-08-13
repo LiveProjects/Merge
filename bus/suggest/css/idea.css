@@ -1,80 +1,57 @@
 * {
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
 body {
   background-color: #60c0c5;
-  overflow: hidden;
 }
-#idea {
-  width: 98%;
-  margin: 0 auto;
-}
-#idea h2 {
+#ideamain {
   width: 100%;
-  height: 48px;
-  line-height: 48px;
+}
+#ideamain h2 {
+  width: 100%;
+  height: 40px;
   text-align: center;
+  line-height: 40px;
   color: white;
-  font-size: 1.6rem;
-  margin-top: 10px;
+  background-color: #60c0c5;
 }
-#idea > div {
-  width: 100%;
-  margin-top: 24px;
-  min-height: 80px;
-}
-#idea > div label {
-  display: block;
+#ideamain > div {
   width: 90%;
-  height: 60px;
   margin: 0 auto;
-  margin-top: 10px;
-  position: relative;
-  border-radius: 6px;
+  margin-top: 20px;
 }
-#idea > div label input {
+#ideamain > div label {
+  display: block;
+  background-color: #60c0c5;
+  border-radius: 6px 6px 0 0;
   width: 100%;
-  height: 100%;
-  background-color: white;
-  text-indent: 100px;
-  -webkit-transition: ease-out 0.2s;
-  -moz-transition: ease-out 0.2s;
-  -ms-transition: ease-out 0.2s;
-  -o-transition: ease-out 0.2s;
-  transition: ease-out 0.2s;
-  border-radius: 6px;
-  border: 4px outset #B2B2B2;
-}
-#idea > div label input:focus {
-  text-indent: 10px;
-}
-#idea > div label span {
-  display: block;
-  height: 60px;
-  line-height: 60px;
-  width: 100px;
-  position: absolute;
-  top: 0;
-  left: 10px;
-}
-#idea > div textarea {
-  display: block;
-  width: 90%;
-  min-height: 60px;
-  margin: 0 auto;
-  margin-top: 10px;
-  font-size: 1.4rem;
-  text-indent: 10px;
-  padding: 10px 0;
-}
-#idea button {
-  display: block;
-  margin: 80px auto;
-  width: 160px;
-  height: 50px;
-  text-align: center;
-  line-height: 50px;
-  font-size: 1.4rem;
+  height: 30px;
+  line-height: 30px;
   font-weight: bold;
+  background-color: #ffffff;
+  margin-top: 20px;
+  text-indent: 20px;
+}
+#ideamain > div select {
+  display: block;
+  width: 100%;
+  height: 46px;
+}
+#ideamain > div textarea {
+  width: 100%;
+  border-top: none;
+  box-sizing: border-box;
+  font-size: 1.6rem;
+}
+#ideamain > div > span {
+  overflow: hidden;
+  display: block;
+  width: auto;
+  width: 200px;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+#ideamain > div > span button {
+  padding: 8px 30px;
 }
