@@ -32,7 +32,7 @@ $(document).ready(function(){
 
         /*登陆*/
         var lu=window.location.host+"/Merge/PCManage/management/php/login.php";
-        alert(lu);
+        //alert(lu);
         $("#loginsub").click(function(){
             $.ajax({
                 url:'php/login.php',
@@ -44,9 +44,11 @@ $(document).ready(function(){
                 },
                 success: function (data) {
                     console.log(data);
-                    if(data){
-
-                    }else{
+                    if(data==1){
+                        alert("登陆成功");
+                        //alert(sessionStorage.getItem('user'));
+                    }else if(data==1){
+                        alert("登录失败");
 
                     }
                 },

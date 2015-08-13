@@ -107,9 +107,13 @@ window.onload=function(){
                 FDate:gl.collegemain7.value
             },
             success:function(data){
-
-                console.log(data);
-
+                if(data==2){
+                    alert("请检查空项");
+                }else if(data==1){
+                    alert("插入成功");
+                }else if(data==0){
+                    alert("预定失败");
+                }
             },
             error: function (err) {
                 console.log(err);

@@ -8,6 +8,7 @@ $username = $_GET['username'];
 $password = $_GET['password'];
 
 $sql = "select * from t_hs_employee where FNumber = '{$username}' and FPwd = '{$password}'";
+//echo $sql;die;
 $result= $db->getrow ( $sql );
 $status = 0;
 if(empty($result)){
@@ -21,7 +22,7 @@ if(empty($result)){
    $_SESSION['user']['companyID'] = $result['FCompanyID'];
    $_SESSION['user']['sectionID'] = $result['FSectionID'];
    
-   //²éÑ¯¹«Ë¾ºÍ²¿ÃÅÐÅÏ¢
+   //ï¿½ï¿½Ñ¯ï¿½ï¿½Ë¾ï¿½Í²ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
    $sql = "select a.FName, b.FName,c.FName from t_hs_employee as a inner join t_hs_company as b on a.FCompanyID = b.FID inner join 
 	  t_hs_section as c on a.FSectionID = c.FID where a.FNumber = '".$username."'";
 	 //echo "sql:".$sql;
@@ -35,6 +36,7 @@ if(empty($result)){
 }
 
 echo json_encode ( $arr );
+echo json_encode($_SESSION['user']);
 
 
 

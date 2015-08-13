@@ -31,6 +31,8 @@ $(document).ready(function(){
                 $(this).parent().css('width','80%');
             }
         });
+
+
     });
     $("#footer").load('common/html/footer.html', function (data, status, xhr) {
         //console.log(data);

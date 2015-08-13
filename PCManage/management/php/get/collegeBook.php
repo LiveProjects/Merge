@@ -8,6 +8,7 @@ require_once  '../../../common/php/non_get/dbaccess.php';
 $db = new DB ();
 session_start ();
 
+/*echo $_GET ['FNum'].$_GET ['FRDate'].$_GET ['FRTime'].$_GET ['FStop'];die;*/
 if (isset ( $_SESSION ['emp_number'] )) {
 
 	if(empty ( $_GET ['FNum'] ) || empty ( $_GET ['FRDate'] ) || empty ( $_GET ['FRTime'] ) || empty ( $_GET ['FStop'] )){
@@ -33,23 +34,22 @@ if (isset ( $_SESSION ['emp_number'] )) {
 
         $book=array();
 
-        $book ['FNumber'] = $_SESSION ['emp_number']; // 提报人编号
-        $book ['FCompanyID'] = $res_company_name ['FID']; // 公司ID
+        $book ['FNumber'] = $_SESSION['user']['number']; // 提报人编号
+        $book ['FCompanyID'] = $_SESSION['user']['companyID']; // 公司ID
         $book ['FStopID'] = $res_id_stop['FID'];
-        $book ['Num'] = $FNum;
+        $book ['FNum'] = $FNum;
         $book ['FRDate'] = $FRDate;
         $book ['FRTime'] = $FRTime;
-        $book ['CurDate'] = date ( 'Y-m-d H:i:s', time () ); // 提报时间
+        $book ['FDate'] = date ( 'Y-m-d H:i:s', time () ); // 提报时间
 
         //echo $book ['FNumber'].$book ['FCompanyID'].$book ['Num'].$book ['FRDate'].$book ['FRTime'].$book ['FStopID'].$book ['CurDate'];
         // 判断是否重复预约
-        $sql_repeat = "select FID from t_hs_collage_reserv where FNumber='{$book['FNumber']}' and FRDate='{$book ['FRDate']}' ";
+        $sql_repeat = "select FID from t_hs_college_reserv where FNumber='{$book['FNumber']}' and FRDate='{$book ['FRDate']}' ";
         $res_repeat = $db->getrow ( $sql_repeat );
 
         if (empty ( $res_repeat )) { // 没有重复预约
             // 向数据库插入数据
-            $res=$db->insert(t_hs_collage_reserv, $book);
-            echo $res;die;
+            $res=$db->insert(t_hs_college_reserv, $book);
             if ($res) {
                 echo 1; // 预约成功
             } else {
@@ -57,7 +57,7 @@ if (isset ( $_SESSION ['emp_number'] )) {
             }
         } else {
             //提示更新
-            $sql_update = "update t_hs_collage_reserv set FStopID='{$book['FStopID']}' , FRTime='{$book ['FRTime']}' , FDate='{$book ['FDate']}' where FID='{$res_repeat['FID']}'";
+            $sql_update = "update t_hs_college_reserv set FStopID='{$book['FStopID']}' , FRTime='{$book ['FRTime']}' , FDate='{$book ['FDate']}', FNum='{$book ['FNum']}' where FID='{$res_repeat['FID']}'";
             $res_update = $db->execsql ( $sql_update );
             if ($res_update) {
                 echo 1; // 预约成功
