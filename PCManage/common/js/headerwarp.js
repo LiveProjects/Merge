@@ -29,19 +29,35 @@ $(document).ready(function(){
                 $(this).parent().css('width','80%');
             }
         });
+
+        /*登陆*/
+        var lu=window.location.host+"/Merge/PCManage/management/php/login.php";
+        alert(lu);
+        $("#loginsub").click(function(){
+            $.ajax({
+                url:'php/login.php',
+                dataType:'json',
+                Type:'POST',
+                data:{
+                    'username':$("#username").val(),
+                    'password':$("#password").val()
+                },
+                success: function (data) {
+                    console.log(data);
+                    if(data){
+
+                    }else{
+
+                    }
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            })
+        });
     });
     $("#footer").load('../common/html/footer.html', function (data, status, xhr) {
         //console.log(data);
     });
 
-    /*    $("#profile").click(function(){
-
-     });*/
-
-    /*scope.manbus=function(){
-     $location.path('/manage')
-     };
-     scope.layout=function(){
-     alert("add layout function");
-     }*/
 });

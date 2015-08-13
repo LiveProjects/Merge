@@ -2,6 +2,8 @@
  * Created by Administrator on 2015/8/5 0005.
  */
 $(document).ready(function(){
+
+    var lu=window.location.href;
     $("#header").load('common/html/header.html', function (data, status, xhr) {
         //console.log(data);
         $("#loginBox").css('height',window.innerHeight-100+'px');
