@@ -7,10 +7,9 @@ session_start ();
 if (isset ( $_SESSION ['emp_number'] )) {
 	
 	$BTime = $_GET ['fixtime']; // 修改后的预约时间
-	$FStartStop = $_GET ['fixstartstop']; // 修改后的始发站
-	$FEndStop = $_GET ['fixendstop']; // 修改后的终点站
 	$FNum = $_GET ['FNum']; // 修改后的用车人数
 	$FRDate = $_GET ['FRDate']; // 修改前的预约日期
+	$FStop = $_GET ['fixstop']; // 修改后的始发站
 	$emp_num = $_SESSION ['emp_number']; // 职员编号
 	 
 	$data_hour = date ( 'H', time () );// 获取小时数
@@ -18,7 +17,7 @@ if (isset ( $_SESSION ['emp_number'] )) {
 	if ($data_hour >= 17) {
 		die ( '3' ); // 请在每天下午5点之前修改预约
 	} else {
-		if (isset ( $BTime ) && isset ( $FStartStop )&& isset ( $FEndStop )&& isset ( $FNum )) {
+		if (isset ( $BTime ) && isset ( $FStop )&& isset ( $FNum )) {
 			if (isset ( $FRDate )) {
 				$day=date('Y-m-d H:i:s',time());
 				$db = new DB ();

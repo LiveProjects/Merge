@@ -6,7 +6,6 @@
 require_once '../../../common/php/non_get/dbaccess.php';
 $db = new DB ();
 session_start ();
-
 if (isset ( $_SESSION ['emp_number'] )) {
 	$emp_num = $_SESSION ['emp_number'];
 	$time = date ( 'H', time () );

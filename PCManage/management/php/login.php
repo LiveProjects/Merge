@@ -17,6 +17,7 @@ if(empty($result)){
 }else{
    $status = 1;
    $arr['status'] = $status;
+   $arr['username']=$result['FName'];
    $_SESSION['user']['number'] = $result['FNumber'];
    $_SESSION['user']['name'] = $result['FName'];
    $_SESSION['user']['companyID'] = $result['FCompanyID'];
@@ -36,7 +37,6 @@ if(empty($result)){
 }
 
 echo json_encode ( $arr );
-echo json_encode($_SESSION['user']);
 
 
 
