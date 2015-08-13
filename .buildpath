@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <buildpath>
-	<buildpathentry kind="src" path="bus/bus/php/get"/>
-	<buildpathentry kind="src" path="bus/bus/php/non_get"/>
-	<buildpathentry kind="src" path="bus/common/php"/>
-	<buildpathentry kind="src" path="common"/>
-	<buildpathentry kind="src" path="PCManage/common/php/non_get"/>
-	<buildpathentry kind="src" path="PCManage/common/PHPExcel"/>
-	<buildpathentry kind="src" path="PCManage/management/php/get"/>
-	<buildpathentry kind="src" path="PCManage/management/php/non_get"/>
+	<buildpathentry kind="src" path=""/>
 	<buildpathentry kind="con" path="org.eclipse.php.core.LANGUAGE"/>
 </buildpath>
