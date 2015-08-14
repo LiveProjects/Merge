@@ -25,5 +25,11 @@ if (isset ( $com_name ) && isset ( $start ) && isset ( $end )) {
 		$res [$key] ['FStop'] = $res_stop ['FName'];
 	}
 // 	var_dump($res);
-	echo json_encode ( $res );
+	$sql_num = "select d.FRDate,count(FRDate) as num from
+	(select b.FNumber from t_hs_company as a inner join t_hs_employee as b on a.FID=b.FCompanyID where a.FName='hisense2')as c
+	INNER  JOIN t_hs_overwork_reserv as d on c.FNumber=d.FNumber
+	where( d.FRDate<='{$end}' and d.FRDate>='{$start}') and d.FType='2' group by FRDate";
+	$res_num = $db->execsql ( $sql_num );
+	$data=array("res"=>$res,"res_num"=>$res_num);
+	echo json_encode ( $data );
 }
