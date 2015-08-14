@@ -15,6 +15,8 @@
 }
 #favmain > div img {
   margin-top: 10px;
+  margin: 0;
+  padding: 0;
 }
 #favmain > div > div {
   height: 200px;

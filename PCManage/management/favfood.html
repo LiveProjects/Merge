@@ -13,22 +13,22 @@
     <div class="col-md-12 container-fluid" id="favmain">
         <h2 class="col-md-12">添加菜品</h2>
         
-        <div class="col-md-12">
+        <div class="col-md-12 well">
             <label for="">菜名</label>
-            <input type="text" id="dishname" placeholder="请输入菜名" />
+            <input class="well-sm col-xs-12 col-md-12" type="text" id="dishname" placeholder="请输入菜名" />
         </div>
 
-        <div class="col-md-12" id="uploadimg">
+        <div class="col-md-2 well" id="uploadimg">
             <label for="" class="col-md-12">添加菜品图片</label>
-            <img src="common/images/login.jpg" class="col-md-2 col-sm-3 col-xs-4" alt="asd"/>
+            <img src="common/images/login.jpg" class="col-md-12 col-sm-12 col-xs-12" alt="asd"/>
             <!--<div class="col-md-2"><input type="file"/></div>-->
         </div>
-        <div class="col-md-12">
+        <div class="col-md-8 col-md-offset-1 well well-lg">
             <label for="">描述一下菜品</label>
             <textarea name="favCon" id="favCon" cols="30" rows="6"></textarea>
         </div>
 
-        <div class="col-md-12">
+        <div class="col-md-12 well">
             <button class="btn btn-info" id="uploadbtn">上传</button>
         </div>
     </div>
@@ -40,9 +40,10 @@
             <button class="btn btn-default" type="submit" id="upboxbtn">上传</button>
         </div>
     </form>
-
-
-
+</div>
+<div id="warning" class="alert alert-warning alert-dismissible col-md-4 col-sm-4 col-xs-4 navbar-fixed-top container-fluid hidden" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong>Warning!</strong> Better check yourself, you're not looking too good.
 </div>
 </body>
 <script src="../common/js/jquery-2.1.1.min.js"></script>

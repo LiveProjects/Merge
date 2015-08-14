@@ -55,16 +55,17 @@ window.onload= function () {
     $("#busblock").find("h6").click(function(){
         $(this).nextAll().slideToggle();
     });
-    
-    $("#ideamain").focus(function(){
+
+    /*$("#ideamain").focus(function(){
     	$(this).attr('rows','8');
     });
     $("#ideamain").blur(function(){
         if($(this).val()==''){
             $(this).attr('rows','4');
         }
-    });
+    });*/
 
+    /*提交建议*/
     $("#subidea").click(function(){
         var ideaType=$("#ideasel option:selected").text();
         var ideaCon=$("#ideamain").val();
@@ -127,6 +128,7 @@ window.onload= function () {
                 if(item['FType']=='重要'){
                     li.style.cssText="background-color:red";
                 }
+                //li.setAttribute('class','list-group-item');
                 gonggaouldoc.appendChild(li);
             });
             gl.gonggaoul.appendChild(gonggaouldoc);

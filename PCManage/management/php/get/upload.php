@@ -8,13 +8,9 @@ $file_tempname=$_FILES['favfood']['tmp_name'];
 
 
 
-$dishname=$_GET['disname'];
-$disintro=$_GET['dishintro'];
-
-if($dishname==''){
-	die(1234);
-}
-echo $_GET['disname'];
+$dishname=$_POST['disname'];
+$disintro=$_POST['dishintro'];
+echo $dishname;
 
 /* 设置允许的文件类型 */
 $allowtype=array("jpg","png","gif");
@@ -44,16 +40,13 @@ if($file_size>$size){
 }
 $file_name=date("YmdHis").rand(100, 999).".".$hz;
 
-
-
-
 if(move_uploaded_file($file_tempname, $path.$file_name)){
 	$db=new DB();
 	
 	$food['FID']=$_SESSION['user']['number'];//临时
-	//$food['user']=$_SESSION['user']['number'];//提报人编号
-	$food['fishname']=$_GET['foodname'];//菜名
-	$food['intro']=$_GET['dishintro'];//介绍
+	$food['upname']=$_SESSION['user']['name'];//提报人姓名
+	$food['dishname']=$_POST['dishname'];//菜名
+	$food['intro']=$_POST['dishintro'];//介绍
 	$food['url']=$path.$file_name;//路径
 	$food['date']=date ( 'Y-m-d H:i:s', time () );//提交时间
 	$food['num']=0;//点赞数初始化
@@ -83,8 +76,6 @@ if(move_uploaded_file($file_tempname, $path.$file_name)){
 	}
 	
 }
-
-
 
 echo $file_name;
 
