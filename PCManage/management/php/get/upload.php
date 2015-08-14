@@ -1,21 +1,25 @@
 <?php
 
+require_once '../../../common/php/non_get/dbaccess.php';
 header ( 'content-type:text/html;charset=utf-8' );
 //电脑上的文件的文件名
-$file=$_FILES['favfood']['name'];
-//上传文件大小
-$file_size=$_FILES['favfood']['size'];
-//上传文件临时文件名
-$file_tempname=$_FILES['favfood']['temp_name'];
-//上传文件报错
-$file_error=$_FILES['favfood']['error'];
-//上传文件类型
-$file_type=$_FILES['favfood']['type'];
+$file_name=$_FILES['favfood']['name'];
+$file_tempname=$_FILES['favfood']['tmp_name'];
+
+
+
+$dishname=$_GET['disname'];
+$disintro=$_GET['dishintro'];
+
+if($dishname==''){
+	die(1234);
+}
+echo $_GET['disname'];
 
 /* 设置允许的文件类型 */
 $allowtype=array("jpg","png","gif");
 /* 设置保存路径 */
-$path='./uploads';
+$path='../../../../common/uploads/';
 /* 设置文件大小 */
 $size=1000000;
 
@@ -28,28 +32,60 @@ if($file_error>0){
 		case 5:die("未知错误");
 	}
 }
-/* 判断上传文件是否为允许类型 */
-$hz=array_pop(explode('.', $file));
+
+$hz=array_pop(explode('.', $file_name));
 if(!in_array($hz, $allowtype)){
 	die("这个后缀是不允许的");
-}
+} 
 
 /* 判断文件大小 */
 if($file_size>$size){
 	die("超出文件大小");
 }
-$file=date("YmdHis").rand(100, 999).".".$hz;
+$file_name=date("YmdHis").rand(100, 999).".".$hz;
 
-/* 判断是否上传文件和能否成功移动文件 */
-if(is_uploaded_file($file_tempname)){
-	if(!move_uploaded_file($file_tempname, $path.'/'.$file)){
-		die("不能移动文件到指定目录");
+
+
+
+if(move_uploaded_file($file_tempname, $path.$file_name)){
+	$db=new DB();
+	
+	$food['FID']=$_SESSION['user']['number'];//临时
+	//$food['user']=$_SESSION['user']['number'];//提报人编号
+	$food['fishname']=$_GET['foodname'];//菜名
+	$food['intro']=$_GET['dishintro'];//介绍
+	$food['url']=$path.$file_name;//路径
+	$food['date']=date ( 'Y-m-d H:i:s', time () );//提交时间
+	$food['num']=0;//点赞数初始化
+	
+	//$res=$db->insert(t_hs_favfood, $food);
+	// 判断是否重复预约
+	/* $sql_repeat = "select FID from t_hs_college_reserv where FNumber='{$book['FNumber']}' and FRDate='{$book ['FRDate']}' ";
+	$res_repeat = $db->getrow ( $sql_repeat ); */
+	
+	if (empty ( $res_repeat )) { // 没有重复预约
+		// 向数据库插入数据
+		$res=$db->insert(t_hs_favfood, $food);
+		if ($res) {
+			echo 1; // 预约成功
+		} else {
+			echo 0; // 预约失败，请联系技术支持
+		}
+	} else {
+		//提示更新
+		$sql_update = "update t_hs_college_reserv set FStopID='{$book['FStopID']}' , FRTime='{$book ['FRTime']}' , FDate='{$book ['FDate']}', FNum='{$book ['FNum']}' where FID='{$res_repeat['FID']}'";
+		$res_update = $db->execsql ( $sql_update );
+		if ($res_update) {
+			echo 1; // 预约成功
+		} else {
+			echo 0; // 预约失败，请联系技术支持
+		}
 	}
-}else {
-	die("上传失败");
+	
 }
 
 
-echo "文件上传成功，保存在目录{$path}中,大小为{$file_size}";
+
+echo $file_name;
 
 ?>

@@ -12,15 +12,14 @@
 <div class="container-fluid">
     <div class="col-md-12 container-fluid" id="favmain">
         <h2 class="col-md-12">添加菜品</h2>
+        
+        <div class="col-md-12">
+            <label for="">菜名</label>
+            <input type="text" id="dishname" placeholder="请输入菜名" />
+        </div>
 
         <div class="col-md-12" id="uploadimg">
             <label for="" class="col-md-12">添加菜品图片</label>
-            <img src="common/images/login.jpg" class="col-md-2 col-sm-3 col-xs-4" alt="asd"/>
-            <img src="common/images/login.jpg" class="col-md-2 col-sm-3 col-xs-4" alt="asd"/>
-
-            <img src="common/images/login.jpg" class="col-md-2 col-sm-3 col-xs-4" alt="asd"/>
-            <img src="common/images/login.jpg" class="col-md-2 col-sm-3 col-xs-4" alt="asd"/>
-            <img src="common/images/login.jpg" class="col-md-2 col-sm-3 col-xs-4" alt="asd"/>
             <img src="common/images/login.jpg" class="col-md-2 col-sm-3 col-xs-4" alt="asd"/>
             <!--<div class="col-md-2"><input type="file"/></div>-->
         </div>
@@ -36,6 +35,8 @@
     <form action="php/get/upload.php" method="post" enctype="multipart/form-data">
         <div id="upbox">
             <input type="file" name="favfood" placeholder="点击上传图片"/>
+            <input type="text" id="caiming" name="dishname" placeholder="caiming"/>
+            <input type="text" id="jiehsao" name="dishintro" placeholder="jieshao"/>
             <button class="btn btn-default" type="submit" id="upboxbtn">上传</button>
         </div>
     </form>

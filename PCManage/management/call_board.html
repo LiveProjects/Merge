@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=5; IE=8">
+    <link rel="stylesheet" href="../tool/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/call_board.css"/>
+    <title></title>
+</head>
+<body>
+<div class="container-fluid">
+    <div>
+        <label for="">类型</label>
+        <select name="" id="calltype">
+            <option value="1" selected>普通</option>
+            <option value="2">重要</option>
+        </select>
+    </div>
+    <div>
+        <label for="">内容</label>
+        <textarea name="callcon" id="callcon" cols="30" rows="10"></textarea>
+    </div>
+    <div>
+        <button class="btn btn-success" id="callbtn">提交</button>
+        <button class="btn btn-danger">重置</button>
+    </div>
+
+</div>
+</body>
+<script src="../common/js/jquery-2.1.1.min.js"></script>
+<script src="js/call_board.js"></script>
+</html>

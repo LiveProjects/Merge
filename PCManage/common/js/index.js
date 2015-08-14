@@ -3,7 +3,8 @@ window.onload= function () {
 
     var bannerlen=$("#banner ul li").length;
     var gl={
-        i:0
+        i:0,
+        gonggaoul:document.getElementById('gonggao').lastElementChild
     };
     $("#banner ul li").css('width',window.innerWidth);
     var bannerwidth=bannerlen * window.innerWidth;
@@ -96,6 +97,43 @@ window.onload= function () {
             }
         })
 
+    })
+
+    var gonggaorun=setTimeout(function(){
+        $("#gonggao ul li").eq(0).appendTo("#gonggao ul");
+
+        setTimeout(arguments.callee,2000);
+    },2000)
+
+    /*去获取公告栏数据*/
+    $.ajax({
+        url:'common/php/non_get/get_call_board_val.php',
+        dataType:'json',
+        Type:'POST',
+        success:function(data){
+            console.log(data);
+            var gonggaouldoc=document.createDocumentFragment();
+
+            data.forEach(function(item,index,attr){
+                //console.log(item['FID']);
+                var li=document.createElement("li");
+                var con=
+                    "["+
+                    item['FType']+
+                    "]"+
+                    item['FContent'];
+                var txt=document.createTextNode(con);
+                li.appendChild(txt);
+                if(item['FType']=='重要'){
+                    li.style.cssText="background-color:red";
+                }
+                gonggaouldoc.appendChild(li);
+            });
+            gl.gonggaoul.appendChild(gonggaouldoc);
+        },
+        error: function (err) {
+            console.log(err);
+        }
     })
 
 };

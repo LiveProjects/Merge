@@ -66,13 +66,24 @@ body{
     padding: 10px;
     border: 2px dashed #000000;
     height: 350px;
+    overflow: hidden;
     li{
-      height: 60px;
+      height: 40px;
       width: 100%;
+      line-height: 40px;
+      text-indent: 10px;
+      font-size: 1.6rem;
       list-style: none;
       margin-bottom: 8px;
-      background-color: #c3325f;
-
+      background-color: #5cb85c;
+      -webkit-transition: ease-out 0.3s;
+      -moz-transition: ease-out 0.3s;
+      -ms-transition: ease-out 0.3s;
+      -o-transition: ease-out 0.3s;
+      transition: ease-out 0.3s;
+      &:first-child{
+        margin-top: -50px;
+      }
     }
   }
 
