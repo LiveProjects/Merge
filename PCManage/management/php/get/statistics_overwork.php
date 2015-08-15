@@ -12,7 +12,7 @@ $com_name = 'hisense2';
 $start = '2015-08-10 00:00:00';
 $end = '2015-10-10 00:00:00';
 /*
- * 网页显示
+ * 查询数据，构造网页显示数据的数组和excel表格显示数据的数组
  */
 if (isset ( $com_name ) && isset ( $start ) && isset ( $end )) {
 	// t_hs_company、t_hs_overwork_reserv与t_hs_employee联合查询，查找出该公司所有职员的编号
@@ -76,6 +76,8 @@ if ($type=='web'){
 
 // $type='excel';
 if ($type=='excel'){
+	require_once '../../../common/PHPExcel/PHPExcel.php';
+	$objPHPExcel=new PHPExcel();
 
 	/*
 	 * 根据下标获得单元格所在列位置
@@ -111,8 +113,7 @@ if ($type=='excel'){
 		header('Cache-Control: max-age=0');//禁止缓存
 	} 
 // 	var_dump($excel);die;
-	require_once '../../../common/PHPExcel/PHPExcel.php';
-	$objPHPExcel=new PHPExcel();
+	
 	$objSheet=$objPHPExcel->getActiveSheet();
 	$objSheet->getDefaultStyle()->getFont()->setName('微软雅黑')->setSize(14);//设置默认字体
 	$objSheet->getDefaultStyle()->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER)
