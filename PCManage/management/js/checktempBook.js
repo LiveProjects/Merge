@@ -3,7 +3,7 @@
  */
 window.onload= function () {
     var gl={
-
+        checktempBusul:document.getElementById("checktempBusul")
     };
 
     /*删除*/
@@ -99,6 +99,61 @@ window.onload= function () {
         var time=setTimeout(function () {
             that.removeAttr('disabled');
         },1000)
+    });
+
+    /*班车记录查询*/
+    $.ajax({
+        url:'php/non_get/temp_checkBook.php',
+        dataType:'json',
+        Type:'POST',
+        success: function (data) {
+            console.log(data);
+            var items=data['check'];
+            items.forEach(function (item, index, attr) {
+                function check(val) {
+                    if(val=='单程'){
+                        return 'checked';
+                    }
+                }
+                function check1(val) {
+                    if(val=='往返'){
+                        return 'checked';
+                    }
+                }
+                var li=
+                "<li>"+
+                    "<div>"+
+                        "<label for=''>预订人数:</label>"+
+                        "<input type='text' disabled value='"+item['FNum']+"'/>"+"人"+
+                    "</div>"+
+                    "<div>"+
+                        "<label for=''>预定日期:</label>"+
+                        "<input type='text' disabled value='"+item['FRDate']+"'/>"+
+                        "<label for=''>预订时间:</label>"+
+                        "<input type='text' disabled value='"+item['FRTime']+"'/>"+
+                    "</div>"+
+                    "<div>"+
+                        "<label for=''>发车地点:</label>"+
+                        "<input type='text' disabled value='"+item['FEndStop']+"'/>"+
+                        "<label for=''>终止地点:</label>"+
+                        "<input type='text' disabled value='"+item['FStartStop']+"'/>"+
+                    "</div>"+
+                    "<div>"+
+                        "<label for=''>单程<input name='line"+index+"' type='radio'"+ check(item['FType'])+"  disabled/></label>"+
+                        "<label for=''>往返<input name='line"+index+"' type='radio' "+check1(item['FType'])+" disabled/></label>"+
+                    "</div>"+
+                    "<div>"+
+                        "<button class='btn btn-success'>修改</button>"+
+                        "<button class='btn btn-danger'>删除</button>"+
+                    "</div>"+
+                "</li>";
+
+                $("#checktempBusul").append(li);
+            })
+        },
+        error: function (err) {
+            console.log(err);
+        }
     })
 
 };

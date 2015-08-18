@@ -12,7 +12,8 @@ window.onload=function(){
         collegemain6:document.getElementById("collegemain6"),
         collegemain7:document.getElementById("collegemain7"),
         Curdate:new Date(),
-        slideright:document.getElementById("slideright")
+        slideright:document.getElementById("slideright"),
+        sliderightul:document.getElementById("sliderightul")
 
     };
     /*XHR工厂模式*//*
@@ -167,6 +168,7 @@ window.onload=function(){
         e.stopPropagation();
         e.cancelBubble=true;
         $(this).find("ul").fadeIn();
+        $(this).siblings().find("ul").fadeOut();
     });
     $("#collegemain span ul").delegate('li','click',function (e) {
         e.stopPropagation();
@@ -174,5 +176,33 @@ window.onload=function(){
         $(this).parent().fadeOut();
         $(this).parent().parent().find("i").text($(this).text());
     });
+    $("#collegemain").click(function () {
+        $(this).find("ul").fadeOut();
+    });
+
+    /*获取站点*/
+    $.ajax({
+        url:'../../bus/bus/php/non_get/overwork_time_stop.php',
+        dataType:'json',
+        Type:'POST',
+        success: function (data) {
+            console.log(data);
+
+            var spot=data['addBS'];
+            var spotweek=data['addBS_weekend'];
+            var parkListulfrag=document.createDocumentFragment();
+            spot.forEach(function(item,index){
+                //console.log(item['FName']);
+                var li=document.createElement("li");
+                var txt=document.createTextNode(item['FName']);
+                li.appendChild(txt);
+                parkListulfrag.appendChild(li);
+            });
+            gl.sliderightul.appendChild(parkListulfrag);
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    })
 
 };

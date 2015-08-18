@@ -48,12 +48,18 @@ body{
       margin-top: 20px;
       min-width: 500px;
       position: relative;
+      overflow: hidden;
       >div{
         height: 50px;
         width: 100%;
         overflow: hidden;
         &:hover{
           background-color: #c3325f;
+        }
+        &:last-child{
+          &:hover{
+            background-color: #f5f5f5;
+          }
         }
         label{
           line-height: 50px;
@@ -97,7 +103,6 @@ body{
           position: absolute;
           top: 0;
           left: 0;
-
         }
       }
     }

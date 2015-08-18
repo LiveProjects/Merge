@@ -47,6 +47,7 @@ body {
   margin-top: 20px;
   min-width: 500px;
   position: relative;
+  overflow: hidden;
 }
 #checkBookmain ul li > div {
   height: 50px;
@@ -55,6 +56,9 @@ body {
 }
 #checkBookmain ul li > div:hover {
   background-color: #c3325f;
+}
+#checkBookmain ul li > div:last-child:hover {
+  background-color: #f5f5f5;
 }
 #checkBookmain ul li > div label {
   line-height: 50px;

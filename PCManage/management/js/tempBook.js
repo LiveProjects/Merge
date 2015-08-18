@@ -58,8 +58,8 @@ window.onload=function(){
                 FNum:gl.collegemain3.value,
                 FRDate:date,
                 FRTime:time,
-                FStartStop:gl.collegemain6.value,
-                FEndStop:gl.collegemain7.value,
+                FStartStop:gl.collegemain7.value,
+                FEndStop:gl.collegemain6.value,
                 FType:FType
             },
             success:function(data){
@@ -86,6 +86,7 @@ window.onload=function(){
         e.stopPropagation();
         e.cancelBubble=true;
         $(this).find("ul").fadeIn();
+        $(this).siblings().find("ul").fadeOut();
     });
     $("#collegemain span ul").delegate('li','click',function (e) {
         e.stopPropagation();
@@ -93,6 +94,12 @@ window.onload=function(){
         $(this).parent().fadeOut();
         $(this).parent().parent().find("i").text($(this).text());
     });
+    $("#collegemain").click(function () {
+        $(this).find("ul").fadeOut();
+    });
+
+
+
 
 
 };

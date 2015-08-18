@@ -92,7 +92,45 @@ window.onload= function () {
         var time=setTimeout(function () {
             that.removeAttr('disabled');
         },1000)
-    })
+    });
 
+    /*班车记录查询*/
+    $.ajax({
+        url:'php/non_get/checkBook.php',
+        dataType:'json',
+        Type:'POST',
+        success: function (data) {
+            console.log(data);
+            var items=data['check'];
+            items.forEach(function (item, index, attr) {
+                var li=
+                    "<li>"+
+                        "<div>"+
+                            "<label for=''>预订人数:</label>"+
+                            "<input type='text' disabled value='100'/>"+
+                        "</div>"+
+                        "<div>"+
+                            "<label for=''>预定日期:</label>"+
+                            "<input type='text' disabled value='2015-9-1'/>"+
+                            "<label for=''>预订时间:</label>"+
+                            "<input type='text' disabled value='9:00'/>"+
+                        "</div>"+
+                        "<div>"+
+                            "<label for=''>预定地点:</label>"+
+                            "<input type='text' disabled value='双山'/>"+
+                        "</div>"+
+                        "<div>"+
+                            "<button class='btn btn-success'>修改</button>"+
+                            "<button class='btn btn-danger'>删除</button>"+
+                        "</div>"+
+                    "</li>";
+
+                $("#checkBusul").append(li);
+            })
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    })
 
 };
