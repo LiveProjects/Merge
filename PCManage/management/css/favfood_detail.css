@@ -1,0 +1,18 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+#container-fluid {
+  margin-top: 20px;
+}
+#container-fluid h4 {
+  display: block;
+  clear: both;
+}
+#container-fluid img {
+  width: 100%;
+}
+#container-fluid button {
+  margin-top: 20px;
+  padding: 10px 20px;
+}

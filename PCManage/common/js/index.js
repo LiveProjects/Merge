@@ -4,7 +4,8 @@ window.onload= function () {
     var bannerlen=$("#banner ul li").length;
     var gl={
         i:0,
-        gonggaoul:document.getElementById('gonggao').lastElementChild
+        gonggaoul:document.getElementById('gonggao').lastElementChild,
+        favfoodul:document.getElementById('favfoodul')
     };
     $("#banner ul li").css('width',window.innerWidth);
     var bannerwidth=bannerlen * window.innerWidth;
@@ -41,15 +42,15 @@ window.onload= function () {
         setTimeout(runbanner);
     })*/
 
-    $("#favFood").find("i").click(function(){
+    $("#favfoodul").delegate('i','click',function(){
         $(this).prev().css({'left':'0','margin-left':'0'});
-
     });
-    $("#favFood").find("p").mouseleave(function(){
+
+    $("#favfoodul").delegate('p','mouseleave',function(){
         $(this).css({'left':'100%','margin-left':'10px'});
         $
     });
-    $("#favFood").find("h6").click(function(){
+    $("#favfoodul").delegate('h6','click',function(){
         $(this).next().slideToggle();
     });
     $("#busblock").find("h6").click(function(){
@@ -112,6 +113,7 @@ window.onload= function () {
         dataType:'json',
         Type:'POST',
         success:function(data){
+            console.log('---call_board');
             console.log(data);
             var gonggaouldoc=document.createDocumentFragment();
 
@@ -126,7 +128,7 @@ window.onload= function () {
                 var txt=document.createTextNode(con);
                 li.appendChild(txt);
                 if(item['FType']=='重要'){
-                    li.style.cssText="background-color:red";
+                    li.style.cssText="background-color:#d43f3a";
                 }
                 //li.setAttribute('class','list-group-item');
                 gonggaouldoc.appendChild(li);
@@ -136,6 +138,75 @@ window.onload= function () {
         error: function (err) {
             console.log(err);
         }
-    })
+    });
+    function addalert() {
+        var div=
+            "<div id='warning' class='alert alert-warning alert-dismissible col-md-4 col-sm-4 col-xs-4 navbar-fixed-top container-fluid hidden' role='alert'>"+
+            "<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>"+
+            "<strong>Warning!</strong> Better check yourself, you're not looking too good."+
+            "</div>;";
 
+        $("body").append(div);
+    };
+
+    addalert();
+    //$("#warning").attr('class','alert alert-warning alert-dismissible col-md-4 col-sm-4 col-xs-4 navbar-fixed-top container-fluid');
+    //$("#warning").contains("我是大侠");
+
+    /*一周食谱*/
+    function favfood() {
+        $.ajax({
+            url:'common/php/non_get/getfavfood.php',
+            dataType:'json',
+            Type:'POST',
+            data:{},
+            success: function (data) {
+                console.log('---favfood');
+                console.log(data);
+
+                var favfooddoc=document.createDocumentFragment();
+                
+                data.forEach(function (item, index, attr) {
+
+                    if(index<4){
+                        var favfoodli=document.createElement("li");
+                        favfoodli.setAttribute('class','col-md-3');
+                        var favfoodimg=document.createElement("img");
+
+                        var src=item['url'];
+                        favfoodimg.setAttribute('src',src);
+                        favfoodli.appendChild(favfoodimg);
+
+                        var p=document.createElement("p");
+                        var favfoodtxt=document.createTextNode(item['intro']);
+                        p.appendChild(favfoodtxt);
+                        favfoodli.appendChild(p);
+
+                        var favfoodi=document.createElement("i");
+                        favfoodli.appendChild(favfoodi);
+
+                        var favfoodspan=document.createElement("span");
+                        var favfoodbtn1=document.createElement("button");
+                        favfoodbtn1.innerText="赞";
+                        var favfoodbtn2=document.createElement("button");
+                        favfoodbtn2.innerText="已赞数";
+                        favfoodspan.appendChild(favfoodbtn1);
+                        favfoodspan.appendChild(favfoodbtn2);
+
+                        favfoodli.appendChild(favfoodspan);
+
+                        favfooddoc.appendChild(favfoodli);
+                    }
+                    //console.log(favfooddoc.innerHTML);
+                    gl.favfoodul.appendChild(favfooddoc);
+
+                })
+            },
+            error: function (err) {
+                console.log(err);
+            }
+
+        })
+    }
+    favfood();
 };

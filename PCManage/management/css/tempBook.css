@@ -2,8 +2,10 @@
   margin: 0;
   padding: 0;
 }
+body {
+  background-color: #9d9d9d;
+}
 #collegemain {
-  background-color: #60c0c5;
   /*width: 50%;*/
   min-width: 400px;
   min-height: 400px;
@@ -50,10 +52,17 @@
   top: -44px;
   display: block;
   height: 100%;
+  color: white;
   line-height: 66px;
   font-weight: bold;
-  color: white;
+  color: black;
   z-index: 10;
+}
+#collegemain > div > span i {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #9d9d9d;
 }
 #collegemain > div .chats {
   display: block;

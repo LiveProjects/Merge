@@ -8,7 +8,7 @@ $(document).ready(function(){
         window.location.href='../index.html';
     }
     $("#manage-right").css('min-height',window.innerHeight-50+'px');
-    $("#manage-right iframe").css('min-height',window.innerHeight-50+'px');
+    $("#manage-right iframe").css('min-height',2*(window.innerHeight-50)+'px');
     $("#manage-left ul li a").click(function(e){
         e.preventDefault();
         var href=$(this).attr('href');

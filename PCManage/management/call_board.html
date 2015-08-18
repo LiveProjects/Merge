@@ -9,23 +9,22 @@
     <title></title>
 </head>
 <body>
-<div class="container-fluid">
-    <div>
-        <label for="">类型</label>
-        <select name="" id="calltype">
+<div class="container-fluid" id="call_board">
+    <div class="col-md-12 well well-lg">
+        <label for="" class="col-md-12">类型</label>
+        <select name="" id="calltype"  class="col-md-2">
             <option value="1" selected>普通</option>
             <option value="2">重要</option>
         </select>
     </div>
-    <div>
-        <label for="">内容</label>
-        <textarea name="callcon" id="callcon" cols="30" rows="10"></textarea>
+    <div class="col-md-12 well well-lg">
+        <label for="" class="col-md-12">内容</label>
+        <textarea class="col-md-12" name="callcon" id="callcon" cols="30" rows="10"></textarea>
     </div>
-    <div>
-        <button class="btn btn-success" id="callbtn">提交</button>
-        <button class="btn btn-danger">重置</button>
+    <div class="col-md-12 well-lg">
+        <button class="btn btn-success col-md-1" id="callbtn">提交</button>
+        <button class="btn btn-danger col-md-1">重置</button>
     </div>
-
 </div>
 </body>
 <script src="../common/js/jquery-2.1.1.min.js"></script>

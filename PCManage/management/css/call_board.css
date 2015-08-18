@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+#call_board > div label {
+  height: 40px;
+  background-color: #60c0c5;
+  line-height: 40px;
+  text-align: 20px;
+  font-size: 1.6rem;
+}
+#call_board > div select {
+  height: 40px;
+  font-size: 1.6rem;
+}
+#call_board > div select option {
+  padding: 20px;
+}
+#call_board > div textarea {
+  width: 100%;
+}
+#call_board > div button {
+  float: right;
+  margin-right: 40px;
+}

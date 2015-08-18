@@ -3,10 +3,10 @@
   padding: 0;
 }
 body{
-
+  background-color: #9d9d9d;
 }
 #collegemain{
-  background-color: rgb(96,192,197);
+  //background-color: rgb(96,192,197);
   /*width: 50%;*/
   min-width: 400px;
   min-height: 400px;
@@ -44,7 +44,12 @@ body{
         color: white;
         z-index: 10;
       }
-
+      i{
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: #9d9d9d;
+      }
     }
     .chats{
       display: block;
@@ -97,7 +102,7 @@ body{
 
 }
 #slideright{
-  background-color: #60c0c5;
+  background-color: #f5f5f5;
   visibility: hidden;
   -webkit-transition: ease-out 0.36s;
   -moz-transition: ease-out 0.36s;
@@ -113,10 +118,11 @@ body{
       text-align: center;
       font-weight: bold;
       font-weight: bold;
-      color: #ffffff;
+      color: #000000;
       font-size: 2rem;
       list-style: none;
       opacity: 0.4;
+      cursor: pointer;
       &:hover{
         opacity: 1;
       }

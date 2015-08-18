@@ -15,7 +15,10 @@ echo $dishname;
 /* 设置允许的文件类型 */
 $allowtype=array("jpg","png","gif");
 /* 设置保存路径 */
+/*相对路径*/
 $path='../../../../common/uploads/';
+/*绝对路径*/
+
 /* 设置文件大小 */
 $size=1000000;
 
