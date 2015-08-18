@@ -13,9 +13,8 @@ window.onload= function () {
         var end=$("#endtime").val();
         //alert(com_name+start+end);
 
-
         $.ajax({
-            url:'php/get/statistics_overwork.php',
+            url:'php/get/statistics_college.php',
             dataType:'json',
             Type:'POST',
             data:{
@@ -27,52 +26,38 @@ window.onload= function () {
             success: function (data) {
                 console.log(data);
 
-
-                function addtr(val) {
-
-                    var web=data['web'];
-
-                    var trs='';
-                    web.forEach(function (item, index, attr) {
-                        //console.log(item['FRDate']);
-                        //console.log(val);
-                        if(item['FRDate']==val){
-                            console.log(item['FRDate']);
-                            var tr=
-                                "<tr>"+
-                                "<td>"+item['FStop']+"</td>"+
-                                "<td>"+item['FRTime']+"</td>"+
-                                "</tr>";
-                            trs=trs+tr;
-                            //console.log(trs,index);
-                        }
-                    });
-                    return trs;
-                };
-
-                var date=data['res_num'];
-                date.forEach(function (item, index, attr) {
+                data.forEach(function (item, index, attr) {
                     var div=
                         "<div class='col-md-10 col-md-offset-1 well'>"+
                         "<label for='' class='control-label'>乘车日期:</label>"+
                         "<input type='text' class='form-control' value='"+item['FRDate']+"' disabled/>"+
                         "<label for='' class='control-label'>人数统计</label>"+
-                        "<input type='text' class='form-control' value='"+item['num']+"' disabled/>"+
+                        "<input type='text' class='form-control' value='"+item['FNum']+"' disabled/>"+
                         "<table class='table'>"+
                         "<thead>"+
                         "<tr>"+
-                        "<th>下车地点</th>"+
+                        "<th>提报人姓名</th>"+
+                        "<th>人数</th>"+
+                        "<th>乘车日期</th>"+
                         "<th>乘车时间</th>"+
+                        "<th>始发站</th>"+
+                        "<th>终点站</th>"+
                         "</tr>"+
                         "</thead>"+
                         "<tbody>"+
-                        addtr(item['FRDate'])+
+                        "<tr>"+
+                        "<td>"+item['emp_name']+"</td>"+
+                        "<td>"+item['FNum']+"</td>"+
+                        "<td>"+item['FRDate']+"</td>"+
+                        "<td>"+item['FRTime']+"</td>"+
+                        "<td>"+item['FStartStop']+"</td>"+
+                        "<td>"+item['FEndStop']+"</td>"+
+                        "</tr>"+
                         "</tbody>"+
                         "</table>"+
                         "</div>";
                     $('#showmain').append(div);
                 })
-
 
             },
             error: function (err) {

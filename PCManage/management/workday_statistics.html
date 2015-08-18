@@ -24,17 +24,19 @@
 </head>
 <body>
 <div class="container-fluid">
-    <div class="col-md-12">
+    <div class="col-md-12 col-md-10 col-md-offset-1 well">
         <label for=""></label>
-        <input type="text" id="comname" class="form-control" value="hisense1" placeholder="公司名称"/>
+        <input type="text" id="comname" class="form-control" value="hisense2" placeholder="公司名称"/>
     </div>
-    <div>
+    <div class="container-fluid well col-md-10 col-md-offset-1">
         <label for="">起始时间</label>
-        <input type="text" name="date" class="datepicker" id="starttime" value="2015-8-8"/>
-        <input type="text" name="date" class="datepicker" id="endtime" value="2015-8-20"/>
-        <button class="btn btn-success" id="workday_statisticsbtn">确定</button>
+        <input type="text" name="date" class="datepicker form-control" id="starttime" value="2015-8-8 00:00:00"/>
+        <input type="text" name="date" class="datepicker form-control" id="endtime" value="2015-8-20 00:00:00"/>
+        <button class="btn btn-success pull-right" id="workday_statisticsbtn">确定</button>
     </div>
+    <div class="container-fluid" id="showmain">
 
+    </div>
 
 </div>
 </body>

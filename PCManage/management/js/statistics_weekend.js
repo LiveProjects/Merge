@@ -11,11 +11,11 @@ window.onload= function () {
         var com_name=$("#comname").val();
         var start=$("#starttime").val();
         var end=$("#endtime").val();
-        //alert(com_name+start+end);
+        alert(com_name+start+end);
 
 
         $.ajax({
-            url:'php/get/statistics_overwork.php',
+            url:'php/get/statistics_weekend.php',
             dataType:'json',
             Type:'POST',
             data:{
@@ -41,7 +41,6 @@ window.onload= function () {
                             var tr=
                                 "<tr>"+
                                 "<td>"+item['FStop']+"</td>"+
-                                "<td>"+item['FRTime']+"</td>"+
                                 "</tr>";
                             trs=trs+tr;
                             //console.log(trs,index);
@@ -61,8 +60,7 @@ window.onload= function () {
                         "<table class='table'>"+
                         "<thead>"+
                         "<tr>"+
-                        "<th>下车地点</th>"+
-                        "<th>乘车时间</th>"+
+                        "<th>上车站点</th>"+
                         "</tr>"+
                         "</thead>"+
                         "<tbody>"+
