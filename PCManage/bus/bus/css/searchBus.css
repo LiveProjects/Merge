@@ -11,7 +11,7 @@ body {
 #searchBus > div {
   width: 90%;
   margin: 200px auto;
-  min-height: 330px;
+  /*min-height: 260px;*/
   -webkit-transition: ease-out 0.2s;
   -moz-transition: ease-out 0.2s;
   -ms-transition: ease-out 0.2s;
@@ -24,13 +24,15 @@ body {
 }
 #searchBus > div > div span {
   width: 100%;
-  height: 48px;
+  height: 68px;
   display: block;
   background-color: #60c0c5;
-  line-height: 48px;
+  line-height: 68px;
   text-align: center;
   color: white;
   font-weight: bold;
+  cursor: pointer;
+  font-size: 2rem;
 }
 #searchBus > div > div table {
   width: 100%;

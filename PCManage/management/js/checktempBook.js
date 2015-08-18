@@ -11,7 +11,7 @@ window.onload= function () {
 
         var needval=$(this).parent().prev().prev().prev().find("input");
         //alert(needval.val());
-
+        var that=$(this);
         $.ajax({
             url:'php/get/temp_delBook.php',
             dataType:'json',
@@ -25,9 +25,10 @@ window.onload= function () {
                 if(data==2){
                     alert("请在每天5点之前删除预约");
                 }else if(data==1){
-                    alert("预约成功");
+                    alert("删除成功");
+                    that.parent().parent().remove();
                 }else if(data==0){
-                    alert("预约失败");
+                    alert("删除失败");
                 }
             },
             error: function (err) {

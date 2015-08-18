@@ -10,7 +10,7 @@ window.onload= function () {
         var end=$("#endtime").val();
         alert(com_name+start+end);
         $.ajax({
-            URL:'php/get/nonstatistics_overwork.php',
+            URL:'php/get/statistics_overwork.php',
             dataType:'json',
             Type:'POST',
             data:{

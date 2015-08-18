@@ -5,9 +5,9 @@
 header ( 'content-type:text/html;charset=utf-8' );
 require_once '../../../common/php/non_get/dbaccess.php';
 $db = new DB ();
-// $com_name = $_GET ['com_name']; // 公司名称
-// $start = $_GET ['start']; // 开始日期
-// $end = $_GET ['end']; // 截止日期
+//$com_name = $_GET ['com_name']; // 公司名称
+//$start = $_GET ['start']; // 开始日期
+//$end = $_GET ['end']; // 截止日期
 $com_name = 'hisense2';
 $start = '2015-08-10 00:00:00';
 $end = '2015-10-10 00:00:00';

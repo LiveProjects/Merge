@@ -126,9 +126,9 @@ window.onload=function(){
                 	(function(){
                 		for(var i=0;i<responselen;i++){
                     		var li=
-                                "<li>"+
+                                "<li class='well'>"+
         		                    "<div>"+
-        		                        "<label for=''>下车地点  <input type='text' value='"+resdata['check'][i]['FStop']+"'" +" disabled/></label>"/*+"<span>"+resdata['check'][i]['book_name']+"</span>"*/+
+        		                        "<label for=''>下车地点:  <input type='text' value='"+resdata['check'][i]['FStop']+"'" +" disabled/></label>"/*+"<span>"+resdata['check'][i]['book_name']+"</span>"*/+
         		                    "</div>"+
         		                    "<span>"+
         		                        "<div>"+
