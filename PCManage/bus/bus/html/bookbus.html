@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=5; IE=8">
+    <link rel="stylesheet" href="../../../tool/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../css/bookbus.css"/>
+    <title>班车预订</title>
+</head>
+<body>
+    <div id="header"><h2>班车预订</h2></div>
+    <div id="outLine">
+        <div id="name" class="well">
+            <span>姓名</span>
+            <input type="text" disabled/>
+        </div>
+        <div id="factory"><input type="text" placeholder="所属公司" disabled/></div>
+        <div id="adddate" class="well">
+            <span>加日期
+                <b id="adddateval"></b>
+            </span>
+            <ul></ul>
+        </div>
+        <div id="addtime" class="well">
+            <span>加班时间
+                <b id="addtimeval"></b>
+            </span>
+            <ul>
+            </ul>
+        </div>
+
+        <div id="park" class="well">
+            <span>站点
+                <b id="parkval"></b>
+            </span>
+            <ol></ol>
+            <ul></ul>
+        </div>
+        <button id="submitBtn">提交</button>
+    </div>
+
+    <div id="parkList">
+        <ul id="parkListul"></ul>
+    </div>
+
+</body>
+<script src="../../common/js/jquery-2.1.1.min.js"></script>
+<script src="../js/bookbus.js"></script>
+</html>

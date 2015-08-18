@@ -1,0 +1,322 @@
+*{
+  margin:0;
+  padding: 0;
+}
+body{
+  //background-color: rgb(96,192,197);
+  overflow: hidden;
+}
+#logo{
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  width: 60px;
+  height: 15px;
+  img{
+    width: 100%;
+    height: 100%;
+  }
+}
+#header{
+  width: 100%;
+  height: 50px;
+/*  background-color: #e38d13;*/
+  margin-top: 15px;
+  h2{
+    display: block;
+    text-align: center;
+    line-height: 50px;
+    font-weight: bold;
+    font-size: 2rem;
+  }
+}
+#outLine{
+  width: 90%;
+  margin: 15px auto;
+
+  #name{
+    width: 100%;
+    margin: 0 auto;
+    height: 44px;
+    position: relative;
+    span{
+      /*display: block;*/
+      position: absolute;
+      width: 80px;
+      height: 44px;
+      top: 0;
+      left: 10px;
+      text-align: left;
+      line-height: 44px;
+      font-size: 1.4rem;
+      color: #888888;
+      -webkit-transition: ease-out 0.3s;
+      -moz-transition: ease-out 0.3s;
+      -ms-transition: ease-out 0.3s;
+      -o-transition: ease-out 0.3s;
+      transition: ease-out 0.3s;
+    }
+    input{
+      display: block;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border: none;
+      border-radius: 0 10px 0 0;
+      text-indent: 14px;
+    }
+  }
+
+  /*#name{
+    width: 100%;
+    span{
+      display: block;
+      width: 80px;
+      height: 40px;
+      text-align: center;
+      line-height: 40px;
+      background-color: white;
+      border-radius: 6px 6px 0 0;
+      font-weight: bold;
+    }
+    input{
+      display: block;
+      height: 40px;
+      text-indent: 10px;
+      width: 100%;
+      border: none;
+      outline: none;
+      font-size: 0.9rem;
+      overflow: hidden;
+      border-radius: 0 10px 0 0;
+    }
+  }*/
+  #factory{
+    width: 100%;
+    margin-top: 10px;
+    input{
+      display: block;
+      height: 40px;
+      text-indent: 10px;
+      width: 100%;
+      border: none;
+      outline: none;
+      font-size: 0.9rem;
+      overflow: hidden;
+      border-radius: 0 10px 0 0;
+    }
+  }
+  #adddate{
+    width: 100%;
+    margin-top: 30px;
+    span{
+      display: block;
+      width: 80px;
+      height: 36px;
+      text-align: center;
+      line-height: 36px;
+      background-color: white;
+      border-radius: 6px 6px 0 0;
+      font-weight: bold;
+      position: relative;
+      b{
+        position: absolute;
+        left: 120%;
+        top: 0;
+        font-size: 1.3rem;
+        color: black;
+        text-align: left;
+        min-width:220px ;
+      }
+    }
+    ul{
+      width: 100%;
+      overflow: hidden;
+      border-radius: 0 10px 0 0;
+      li{
+        width: 25%;
+        height: 36px;
+        min-width: 60px;
+        list-style: none;
+        float: left;
+        text-align: center;
+        line-height: 36px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        margin-bottom: 4px;
+        &:active{
+          background-color: deeppink;
+        }
+      }
+    }
+  }
+  #addtime{
+    width: 100%;
+    margin-top: 10px;
+    span{
+      display: block;
+      width: 80px;
+      height: 36px;
+      text-align: center;
+      line-height: 36px;
+      background-color: white;
+      border-radius: 6px 6px 0 0;
+      font-weight: bold;
+      position: relative;
+      b{
+        position: absolute;
+        left: 120%;
+        top: 0;
+        font-size: 1.3rem;
+        text-align: left;
+        width: 100px;
+        color: white;
+        min-width:220px ;
+      }
+    }
+    ul{
+      width: 100%;
+      overflow: hidden;
+      border-radius: 0 10px 0 0;
+      li{
+        width: 25%;
+        height: 36px;
+        min-width: 60px;
+        list-style: none;
+        float: left;
+        text-align: center;
+        line-height: 36px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        margin-bottom: 4px;
+        &:active{
+          background-color: deeppink;
+        }
+      }
+    }
+  }
+  #park{
+    width: 100%;
+    margin-top: 10px;
+    span{
+      display: block;
+      width: 80px;
+      height: 36px;
+      text-align: center;
+      line-height: 36px;
+      background-color: white;
+      border-radius: 6px 6px 0 0;
+      font-weight: bold;
+      position: relative;
+      b{
+        position: absolute;
+        min-width:220px ;
+        left: 120%;
+        top: 0;
+        font-size: 1.3rem;
+        color: white;
+        text-align: left;
+      }
+    }
+    ol{
+      width: 100%;
+      overflow: hidden;
+      border-radius: 0 10px 0 0;
+      background-color: white;
+      li{
+        list-style: none;
+        float: left;
+        width: 25%;
+        height: 36px;
+        min-width: 60px;
+        list-style: none;
+        float: left;
+        text-align: center;
+        line-height: 36px;
+        font-size: 1.1rem;
+        margin-bottom: 2px;
+        cursor: pointer;
+        margin-bottom: 4px;
+        &:active{
+          background-color: deeppink;
+        }
+      }
+    }
+    ul{
+      width: 100%;
+      overflow: hidden;
+      border-radius: 0 10px 0 0;
+      background-color: white;
+      display: none;
+      li{
+        list-style: none;
+        float: left;
+        width: 25%;
+        height: 36px;
+        min-width: 60px;
+        margin-bottom: 2px;
+        list-style: none;
+        float: left;
+        text-align: center;
+        line-height: 36px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        margin-bottom: 4px;
+        &:active{
+          background-color: deeppink;
+        }
+      }
+    }
+  }
+  button{
+    display: block;
+    width: 126px;
+    height: 44px;
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 44px;
+    font-weight: bold;
+    font-size: 1.4em;
+    background-color: #3399ff;
+    color: white;
+  }
+}
+#parkList{
+  position: absolute;
+  width: 140px;
+  top: 0;
+  -webkit-transition: ease-out 0.26s;
+  -moz-transition: ease-out 0.26s;
+  -ms-transition: ease-out 0.26s;
+  -o-transition: ease-out 0.26s;
+  transition: ease-out 0.26s;
+  right: -140px;
+  ul{
+    width: 100%;
+
+    overflow-y: scroll;
+    li{
+      width: 100%;
+      height: 46px;
+      list-style: none;
+      text-align: center;
+      line-height: 46px;
+      font-size: 1rem;
+      font-weight: bold;
+      opacity: 0.8;
+      margin-bottom: 4px;
+      background-color: #e38d13;
+      &:active{
+        opacity: 1;
+      }
+    }
+  }
+}
+.showlist{
+  right: 0!important;
+}

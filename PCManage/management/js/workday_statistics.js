@@ -7,7 +7,7 @@ window.onload= function () {
     $("#workday_statisticsbtn").click(function (e) {
         var com_name=$("#comname").val();
         var start=$("#starttime").val();
-        var end=$("#end").val();
+        var end=$("#endtime").val();
         alert(com_name+start+end);
         $.ajax({
             URL:'php/get/nonstatistics_overwork.php',
