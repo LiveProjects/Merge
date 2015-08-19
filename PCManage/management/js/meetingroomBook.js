@@ -22,5 +22,29 @@ window.onload= function () {
                 console.log(err);
             }
         })
-    }
+    };
+    $("#meetingroomBookreset").click(function(){
+        $(this).prevAll('input').val('');
+    });
+    $("#meetingroomBooksub").click(function(){
+
+        
+        $.ajax({
+            url:'',
+            dataType:'json',
+            Type:'POST',
+            data:{
+                'dateval':dateval
+            },
+            success:function(data){
+                console.log(data);
+            },
+            error:function(err){
+                console.log(err);
+            }
+        })
+
+
+
+    })
 };
