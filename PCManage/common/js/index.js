@@ -41,7 +41,9 @@ window.onload= function () {
         setTimeout(runbanner);
     })*/
 
-    $("#favfoodul").delegate('i','click',function(){
+    $("#favfoodul").delegate('i','click',function(e){
+        e.stopPropagation();
+        e.cancelBubble=true;
         $(this).prev().css({'left':'0','margin-left':'0'});
     });
 
@@ -97,7 +99,6 @@ window.onload= function () {
                 console.log(err);
             }
         })
-
     });
 
     /*提交设备维修*/
@@ -207,7 +208,7 @@ window.onload= function () {
                         favfoodli.setAttribute('class','col-md-3');
                         var favfoodimg=document.createElement("img");
 
-                        var src=item['url'];
+                        var src=item['url'].substring(9);
                         favfoodimg.setAttribute('src',src);
                         favfoodli.appendChild(favfoodimg);
 
@@ -243,4 +244,39 @@ window.onload= function () {
         })
     }
     favfood();
+
+    /*点赞*/
+    $("#favfoodul").delegate('li span button:first-child','click',function(e){
+        e.stopPropagation();
+        e.cancelBubble=true;
+        var url=$(this).parent().parent().find('img').attr('src');
+        //alert(url);
+        $.ajax({
+            url:'management/php/get/clickzan.php',
+            dataType:'text',
+            Type:'POST',
+            data:{
+                'url':url
+            },
+            success: function (data) {
+                console.log(data);
+                if(data==1){
+                    alert("点赞成功");
+                }else{
+                    alert("点赞失败");
+                }
+            },
+            error: function (err) {
+                console.log(err);
+
+            }
+        })
+    });
+
+    /*点击跳转展示页*/
+    $("#favfoodul").delegate('li','click',function(){
+        var favdetailurl=$(this).find('img').attr('src');
+        sessionStorage.setItem('favfooddetailurl',favdetailurl);
+        window.location.href='management/favfood_detail.html';
+    })
 };

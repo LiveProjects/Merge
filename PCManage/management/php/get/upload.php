@@ -61,7 +61,7 @@ if(move_uploaded_file($file_tempname, $path.$file_name)){
 	
 	if (empty ( $res_repeat )) { // 没有重复预约
 		// 向数据库插入数据
-		$res=$db->insert(t_hs_favfood, $food);
+		$res=$db->insert(t_hs_favfood,$food);
 		if ($res) {
 			echo 1; // 预约成功
 		} else {
@@ -81,5 +81,6 @@ if(move_uploaded_file($file_tempname, $path.$file_name)){
 }
 
 echo $file_name;
+echo $food['url'];
 
 ?>
