@@ -12,15 +12,11 @@ session_start ();
 // echo $_GET ['FStartStop'] . '<br/>';
 // echo $_GET ['FEndStop'] . '<br/>';
 // echo $_GET ['FType'] . '<br/>';
-if (isset ( $_SESSION ['emp_name'] ) && isset ( $_SESSION ['emp_company'] )) {
+if (isset ( $_SESSION ['user']['number'] ) && isset ( $_SESSION['user']['companyID'] )) {
 	if (empty ( $_GET ['FNum'] ) || empty ( $_GET ['FRDate'] ) || empty ( $_GET ['FRTime'] ) || empty ( $_GET ['FStartStop'] ) || empty ( $_GET ['FEndStop'] ) || empty ( $_GET ['FType'] )) {
 		echo 2; // 请检查空项
 	} else {
 		$db = new DB ();
-		// 查询出所在公司的ID
-		$emp_company = $_SESSION ['emp_company']; // 公司名称
-		$sql_company_name = "select FID from t_hs_company where FName='{$emp_company}'";
-		$res_company_name = $db->getrow ( $sql_company_name );
 		if ($_GET ['FType'] == '单程') {
 			$type = "0";
 		} else {
@@ -28,8 +24,8 @@ if (isset ( $_SESSION ['emp_name'] ) && isset ( $_SESSION ['emp_company'] )) {
 		}
 		// 构造数据结构，向t_hs_temporary_reserv插入预约记录
 		$book = array ();
-		$book ['FNumber'] = $_SESSION ['emp_number']; // 提报人编号
-		$book ['FCompanyID'] = $res_company_name ['FID']; // 公司ID
+		$book ['FNumber'] = $_SESSION ['user']['number']; // 提报人编号
+		$book ['FCompanyID'] = $_SESSION['user']['companyID']; // 公司ID
 		$book ['FNum'] = $_GET ['FNum']; // 人数
 		$book ['FRDate'] = $_GET ['FRDate']; // 使用班车日期
 		$book ['FRTime'] = $_GET ['FRTime']; // 时间

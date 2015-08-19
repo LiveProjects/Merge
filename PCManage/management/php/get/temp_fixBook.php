@@ -4,14 +4,14 @@
  */
 require_once '../../../common/php/non_get/dbaccess.php';
 session_start ();
-if (isset ( $_SESSION ['emp_number'] )) {
+if (isset ( $_SESSION['user']['number'] )) {
 	$BTime = $_GET ['fixtime']; // 修改后的预约时间
 	$FStartStop = $_GET ['fixstartstop']; // 修改后的始发站
 	$FEndStop = $_GET ['fixendstop']; // 修改后的终点站
 	$FNum = $_GET ['FNum']; // 修改后的用车人数
 	$FType = $_GET ['FType']; // 修改后的单程或往返
 	$FRDate = $_GET ['FRDate']; // 修改前的预约日期
-	$emp_num = $_SESSION ['emp_number']; // 职员编号
+	$emp_num = $_SESSION['user']['number']; // 职员编号
 	                                  
 	$data_hour = date ( 'H', time () );// 获取小时数
 	// echo $data_hour;

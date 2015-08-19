@@ -5,8 +5,8 @@
 header ( 'content-type:text/html;charset=utf-8' );
 require_once '../../../common/php/non_get/dbaccess.php';
 session_start ();
-if (isset ( $_SESSION ['emp_number'] ) && isset ( $_SESSION ['emp_company'] ) && isset ( $_SESSION ['emp_section'] )) {
-	$emp_num = $_SESSION ['emp_number'];
+if (isset ( $_SESSION['user']['number'] ) && isset ( $_SESSION['user']['companyname'] ) && isset ( $_SESSION['user']['sectionname'])) {
+	$emp_num = $_SESSION['user']['number'];
 	$db = new DB ();
 	/*
 	 * ****************预约查看*********************
@@ -32,8 +32,8 @@ if (isset ( $_SESSION ['emp_number'] ) && isset ( $_SESSION ['emp_company'] ) &&
 	}
 	// 将查到的公司信息与职员的预约记录以JSON格式输出
 	$check_data = array (
-			'emp_company' => $_SESSION ['emp_company'],
-			'emp_name' => $_SESSION ['emp_name'],
+			'emp_company' => $_SESSION['user']['companyname'],
+			'emp_name' => $_SESSION['user']['number'],
 			'check' => $res_check 
 	);
 	//var_dump($check_data);die;
