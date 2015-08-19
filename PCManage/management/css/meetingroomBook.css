@@ -1,0 +1,21 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+#meetingroomBook {
+  margin-top: 10px;
+}
+#meetingroomBook > div {
+  overflow: hidden;
+}
+#meetingroomBook > div label {
+  margin-top: 8px;
+}
+#meetingroomBook > div button {
+  margin-top: 20px;
+  margin-right: 40px;
+  padding: 6px 20px;
+}
+#meetingroomBooktop img {
+  width: 100%;
+}

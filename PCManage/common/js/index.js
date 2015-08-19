@@ -1,21 +1,20 @@
 window.onload= function () {
 
-
-    var bannerlen=$("#banner ul li").length;
     var gl={
         i:0,
         gonggaoul:document.getElementById('gonggao').lastElementChild,
         favfoodul:document.getElementById('favfoodul')
     };
-    $("#banner ul li").css('width',window.innerWidth);
+    /*var bannerlen=$("#banner ul li").length;
+    //$("#banner ul li").css('width',window.innerWidth);
     var bannerwidth=bannerlen * window.innerWidth;
     $("#banner ul").css('width',bannerwidth);
 
     var runbanner=setTimeout(function () {
-        /*往返效果*/
+        *//*往返效果*//*
         if(gl.i<bannerlen){
         }
-        /*循环效果*/
+        *//*循环效果*//*
         $("#banner ul li").eq(0).css('margin-left','-100%');
 
         setTimeout(function(){
@@ -33,7 +32,7 @@ window.onload= function () {
 
         },3000);
         setTimeout(arguments.callee,3000);
-    },3000);
+    },3000);*/
 
     /*$("#banner ul").delegate('li','mouseenter', function () {
         clearTimeout(runbanner);
@@ -53,9 +52,9 @@ window.onload= function () {
     $("#favfoodul").delegate('h6','click',function(){
         $(this).next().slideToggle();
     });
-    $("#busblock").find("h6").click(function(){
+    /*$("#busblock").find("h6").click(function(){
         $(this).nextAll().slideToggle();
-    });
+    });*/
 
     /*$("#ideamain").focus(function(){
     	$(this).attr('rows','8');
@@ -99,7 +98,42 @@ window.onload= function () {
             }
         })
 
-    })
+    });
+
+    /*提交设备维修*/
+    $("#maginesub").click(function(){
+        var ideaType=$("#maginesel option:selected").text();
+        var ideaCon=$("#maginemain").val();
+        var ideaAdd=$("#magineadd").val();
+        //alert(ideaType+ideaCon+ideaAdd);
+        $.ajax({
+            url:'../common/magine.php',
+            dataType:'json',
+            Type:'POST',
+            data:{
+                ideaType:ideaType,
+                ideaCon:ideaCon,
+                ideaAdd:ideaAdd
+            },
+            success:function(data){
+                console.log(data);
+                if(data==1){
+                    alert("您的建议已提交");
+                    $("#maginemain").val('');
+                    $("#magineadd").val('');
+                    $(this).attr('rows','2');
+                }else if(data==2){
+                    alert("请检查空项");
+                }else if(data==0){
+                    alert("提交失败");
+                }
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        })
+
+    });
 
     var gonggaorun=setTimeout(function(){
         $("#gonggao ul li").eq(0).appendTo("#gonggao ul");

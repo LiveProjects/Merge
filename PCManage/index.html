@@ -26,9 +26,32 @@
     </ol>
 </div>-->
 <div class="container-fluid" id="mainbody">
-    <h2 class="col-md-12">海信园区</h2>
+    <div id="indextop" class="col-md-10 col-md-offset-1">
+        <div class="col-md-6">海信科技园区</div>
+        <div class="col-md-6" id="indexinfo">
+            <ul>
+                <li><a href=""></a></li>
+                <li><a href=""></a></li>
+                <li><a href=""></a></li>
+                <li><a href=""></a></li>
+                <li><a href=""></a></li>
+                <li><a href=""></a></li>
+            </ul>
+        </div>
 
-    <div class="col-md-8" id="activity">
+    </div>
+    <div class="col-md-6 col-md-offset-1" id="indexbanner">
+        <img src="common/images/banner.jpg" alt="ass"/>
+    </div>
+
+    <div class="col-md-4" id="gonggao">
+        <h6>公告</h6>
+        <ul class="list-group">
+
+        </ul>
+    </div>
+
+    <div class="col-md-6 col-md-offset-1" id="activity">
         <h6>动态</h6>
         <ol>
             <li><img src="common/images/login.jpg" alt="img"/>
@@ -49,14 +72,31 @@
 
         </ol>
     </div>
-    <div class="col-md-4" id="gonggao">
-        <h6>公告</h6>
-        <ul class="list-group">
 
-        </ul>
-    </div>
+    <!--<div class="col-md-8" id="activity">
+        <h6>动态</h6>
+        <ol>
+            <li><img src="common/images/login.jpg" alt="img"/>
 
-    <div id="busblock" class="col-md-12 container-fluid">
+                <p>asdadasdsadsada</p>
+            </li>
+            <div class="media">
+                <div class="media-left">
+                    <a href="#">
+                        <img class="media-object" src="common/images/login.jpg" alt="...">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">Media heading</h4>
+                    ...
+                </div>
+            </div>
+
+        </ol>
+    </div>-->
+
+
+    <!--<div id="busblock" class="col-md-12 container-fluid">
         <h6>班车</h6>
         <div class="col-md-6 container-fluid">
             <ul class="col-md-4">
@@ -81,31 +121,22 @@
                 <li>3</li>
             </ol>
         </div>
-    </div>
-
-    <div class="col-md-12 container-fluid" id="favFood">
-        <h6>一周食谱</h6>
-        <div>
-            <ul class="col-md-12 container-fluid" id="favfoodul">
+    </div>-->
 
 
 
-            </ul>
-        </div>
-    </div>
-
-    <div class="col-md-6 container-fluid" id="ideablock">
+    <div class="col-md-4 container-fluid" id="ideablock">
         <h6>建议箱</h6>
-        <div class="col-md-12" id="ideablockmain">
+        <div class="col-md-12 form-group" id="ideablockmain">
             <select name="type" id="ideasel">
                 <option value="XXX">XXXX</option>
                 <option value="XXX">XXXX</option>
                 <option value="XXX">XXXX</option>
             </select>
             <label for="">内容:</label>
-            <textarea name="idaemain" id="ideamain" cols="30" rows="4"></textarea>
+            <textarea name="idaemain" class="form-control" id="ideamain" cols="30" rows="3"></textarea>
             <label for="">备注:</label>
-            <textarea name="add" id="ideaadd" cols="20" rows="2"></textarea>
+            <textarea name="add" class="form-control" id="ideaadd" cols="20" rows="1"></textarea>
 
             <div>
                 <button class="btn btn-success" id="subidea">提交</button>
@@ -113,29 +144,33 @@
             </div>
         </div>
     </div>
-    <div class="col-md-6" id="magine">
+    <div class="col-md-4 col-md-offset-7" id="magine">
         <h6>设备维修</h6>
-        <ol>
-            <li><img src="common/images/login.jpg" alt="img"/>
+        <div class="col-md-12 form-group" id="magineblockmain">
+            <select name="type" id="maginesel">
+                <option value="XXX">XXXX</option>
+                <option value="XXX">XXXX</option>
+                <option value="XXX">XXXX</option>
+            </select>
+            <label for="">内容:</label>
+            <textarea name="idaemain" class="form-control" id="maginemain" cols="30" rows="3"></textarea>
+            <label for="">备注:</label>
+            <textarea name="add" class="form-control" id="magineadd" cols="20" rows="1"></textarea>
 
-                <p>asdadasdsadsada</p>
-            </li>
-            <li><img src="common/images/login.jpg" alt="img"/>
-
-                <p>asdadasdsadsada</p>
-            </li>
-            <li><img src="common/images/login.jpg" alt="img"/>
-
-                <p>asdadasdsadsada</p>
-            </li>
-            <li><img src="common/images/login.jpg" alt="img"/>
-
-                <p>asdadasdsadsada</p>
-            </li>
-
-        </ol>
+            <div>
+                <button class="btn btn-success" id="maginesub">提交</button>
+                <button class="btn btn-danger">重置</button>
+            </div>
+        </div>
     </div>
+    <div class="col-md-12 container-fluid" id="favFood">
+        <h6>一周食谱</h6>
+        <div>
+            <ul class="col-md-12 container-fluid" id="favfoodul">
 
+            </ul>
+        </div>
+    </div>
     <div class="col-md-12" id="sharephotos">
         <h6>随手拍</h6>
     </div>
