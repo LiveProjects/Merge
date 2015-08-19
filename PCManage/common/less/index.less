@@ -5,16 +5,21 @@
 body{
   //overflow: hidden;
 }
+#mainbody{
+  padding: 0 5px;
+}
 #banner{
   padding: 0;
   margin: 0;
   height: 400px;
   position: relative;
+  overflow: hidden;
   >ul{
-
     height: 100%;
     margin: 0;
     padding: 0;
+    overflow: hidden;
+    width: 100%;
     li{
       list-style: none;
       height: 100%;
@@ -52,6 +57,8 @@ body{
   }
 }
 #gonggao{
+  padding: 0;
+  background-color: #00b3ee;
   h6{
     text-indent: 10px;
     line-height: 40px;
@@ -62,10 +69,9 @@ body{
   }
   ul{
     width: 100%;
-    background-color: #ffffff;
+    background-color: #00b3ee;;
     padding: 10px;
-    border: 2px dashed #60c0c5;
-    height: 295px;
+    height: 252px;
     overflow: hidden;
     li{
       height: 40px;
@@ -94,8 +100,12 @@ body{
   background-color: #60c0c5;
   height: 60px;
   line-height: 60px;
+  >div{
+
+  }
 }
 #activity{
+  padding: 0;
   h6{
     text-indent: 10px;
     line-height: 40px;
@@ -139,13 +149,14 @@ body{
   -moz-transform:scale(@a);
 }
 #favFood{
-  margin-top: 10px;
+  padding:0;
   h6{
     text-indent: 10px;
     line-height: 40px;
     height: 40px;
     background-color: #60c0c5;
     margin-bottom: 0;
+    margin-top: 0;
   }
   >div{
     width: 100%;
@@ -158,7 +169,7 @@ body{
       padding: 0 0px;
       li{
         list-style: none;
-        height: 200px;
+        height: 180px;
         margin: 10px auto;
         //width: 300px;
         position: relative;
@@ -327,8 +338,8 @@ body{
   }
 }
 #ideablock{
-  margin-top: 10px;
-
+  padding: 0;
+  background-color: #00b3ee;
   h6{
     text-indent: 10px;
     line-height: 40px;
@@ -338,12 +349,12 @@ body{
     margin-bottom: 0;
   }
   #ideablockmain{
-    background-color: #60c0c5;
+    background-color: #00b3ee;
+    padding: 0 30px;
     select{
       width: 60%;
       height: 40px;
       display: block;
-      margin-top: 10px;
       option{
         padding: 8px auto;
         font-size: 1.6rem;
@@ -375,12 +386,14 @@ body{
         float: right;
         margin-right: 40px;
         padding: auto 20px;
+        padding: 4px 24px;
       }
     }
   }
 }
 #magine{
-  margin-top: 10px;
+  padding: 0;
+  background-color: #00b3ee;
   h6{
     text-indent: 10px;
     line-height: 40px;
@@ -389,33 +402,53 @@ body{
     margin-top: 0;
     margin-bottom: 0;
   }
-  ol{
-    width: 100%;
-    background-color: #ffffff;
-    border: 2px dashed #000000;
-    padding: 10px;
-    height: 350px;
-    li{
-      width: 100%;
-      height: 80px;
-      background-color: #60c0c5;
-      margin-bottom: 6px;
-      list-style: none;
-      img{
-        height: 80px;
-        width: 80px;
-        float: left;
+  #magineblockmain{
+    background-color: #00b3ee;
+    padding: 0 30px;
+    select{
+      width: 60%;
+      height: 40px;
+      display: block;
+      option{
+        padding: 8px auto;
+        font-size: 1.6rem;
       }
-      p{
-        padding: 4px;
-        max-resolution: 4px;
-        float: left;
+    }
+    label{
+      display: block;
+      width: 100%;
+      height: 40px;
+      line-height: 40px;
+      color: black;
+      font-weight: bold;
+      font-size: 1.6rem;
+    }
+    textarea{
+      display: block;
+      width: 100%;
+      margin: 0;
+      -webkit-transition: easee-in 0.2s;
+      -moz-transition: easee-in 0.2s;
+      -ms-transition: easee-in 0.2s;
+      -o-transition: easee-in 0.2s;
+      transition: easee-in 0.2s;
+    }
+    >div{
+      height: 40px;
+      margin-top: 10px;
+      button{
+        float: right;
+        margin-right: 40px;
+        padding: auto 20px;
+        padding: 4px 24px;
       }
     }
   }
+
 }
 #sharephotos{
   margin-top: 10px;
+  padding: 0;
   h6{
     text-indent: 10px;
     line-height: 40px;
@@ -423,5 +456,53 @@ body{
     background-color: #60c0c5;
     margin-top: 0;
     margin-bottom: 0;
+  }
+}
+
+
+
+/*second*/
+#indextop{
+  height: 160px;
+  background-color: #00b3ee;
+  padding: 0;
+  >div{
+    height: inherit;
+    text-align: center;
+    line-height: 160px;
+    font-size: 4rem;
+
+  }
+}
+#indexbanner{
+  height: 312px;
+  padding: 0;
+  img{
+    width: 100%;
+    height: 100%;
+  }
+}
+#indexinfo{
+  ul{
+    width: 325px;
+    margin: 60px auto;
+    li{
+      width: 80px;
+      height: 30px;
+      line-height: 20px;
+      font-size: 1.4rem;
+      float: left;
+      list-style: none;
+      margin-left: 1px;
+      margin-top: 1px;
+      a{
+        display: block;
+        width: 100%;
+        height: 100%;
+        line-height: 20px;
+        background-color: #000080;
+
+      }
+    }
   }
 }

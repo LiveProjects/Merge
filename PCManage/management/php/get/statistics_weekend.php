@@ -48,11 +48,11 @@ if (isset ( $com_name ) && isset ( $start ) && isset ( $end )) {
 		// var_dump($excel);die;
 	}
 }
-$type = $_GET ['type'];
+//$type = $_GET ['type'];
 /*
  * 网页显示结果，显示的数据：公司、日期、下车站点、乘车时间、人数（按日期统计）
  */
-// $type='web';
+$type='web';
 if ($type == 'web') {
 	// 按日期查询人数
 	$sql_num = "select d.FRDate,count(FRDate) as num from

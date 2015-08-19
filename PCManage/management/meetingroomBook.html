@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=5; IE=8">
+    <link rel="stylesheet" href="../tool/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/meetingroomBook.css"/>
+    <title></title>
+</head>
+<body>
+<div class="container-fluid" id="meetingroomBook">
+    <div class="media well col-md-10 col-lg-offset-1" id="meetingroomBooktop">
+        <div class="media-left col-md-2">
+            <a href="#">
+                <img class="media-object" src="common/images/login.jpg" alt="...">
+            </a>
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading">会议室介绍</h4>
+            ...
+        </div>
+    </div>
+    <div class="well col-md-10 col-lg-offset-1">
+        <label for="">日期选取</label>
+        <input type="text" id="date" class="form-control"/>
+        <button class="btn btn-success pull-right" id="meetingroomBookbtn">确定</button>
+    </div>
+
+    <div class="col-md-10 col-md-offset-1">
+        <h4 class="panel-heading h4">会议室使用状况</h4>
+        <table class="table col-md-12">
+            <thead>
+            <tr>
+                <th>提报人</th>
+                <th>时间</th>
+                <th>日期</th>
+                <th>人数</th>
+                <th>地点</th>
+                <th>备注</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+
+    <div class="col-md-10 col-md-offset-1 well">
+        <h4 class="h4 panel-heading">会议室预约</h4>
+        <label for="" class="label-info control-label label">姓名</label>
+        <input type="text" class="form-control"/>
+        <label for="" class="">电话</label>
+        <input type="text" class="form-control"/>
+        <label for="" class="">公司部门</label>
+        <input type="text" class="form-control"/>
+        <label for="" class="">使用日期</label>
+        <input type="text" class="form-control"/>
+        <label for="" class="">使用人数</label>
+        <input type="text" class="form-control"/>
+        <label for="" class="">开始时间</label>
+        <input type="text" class="form-control"/>
+        <label for="" class="">结束时间</label>
+        <input type="text" class="form-control"/>
+
+        <button class="btn btn-info pull-right">提交</button>
+        <button class="btn btn-danger pull-right">重置</button>
+    </div>
+</div>
+</body>
+<script src="../common/js/jquery-2.1.1.min.js"></script>
+<script src="js/meetingroomBook.js"></script>
+<script src="js/date.js"></script>
+</html>

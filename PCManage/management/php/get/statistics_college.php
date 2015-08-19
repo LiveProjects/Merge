@@ -5,9 +5,9 @@
 header ( 'content-type:text/html;charset=utf-8' );
 require_once '../../../common/php/non_get/dbaccess.php';
 $db = new DB ();
-// $com_name = $_GET ['com_name']; // 公司名称
-// $start = $_GET ['start']; // 开始日期
-// $end = $_GET ['end']; // 截止日期
+//$com_name = $_GET ['com_name']; // 公司名称
+//$start = $_GET ['start']; // 开始日期
+//$end = $_GET ['end']; // 截止日期
 $com_name = 'hisense1';
 $start = '2015-08-10 00:00:00';
 $end = '2015-10-10 00:00:00';
@@ -42,11 +42,11 @@ if (isset ( $com_name ) && isset ( $start ) && isset ( $end )) {
 	}
 	// var_dump($data);die;
 }
-$type = $_GET ['type'];
+//$type = $_GET ['type'];
 /*
  * 网页显示结果，显示的数据：公司、日期、下车站点、乘车时间、人数（按日期统计）
  */
-// $type='web';
+$type='web';
 if ($type == 'web') {
 	// var_dump($data);
 	echo json_encode ( $data );

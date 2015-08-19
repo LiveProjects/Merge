@@ -1,21 +1,20 @@
 window.onload= function () {
 
-
-    var bannerlen=$("#banner ul li").length;
     var gl={
         i:0,
         gonggaoul:document.getElementById('gonggao').lastElementChild,
         favfoodul:document.getElementById('favfoodul')
     };
-    $("#banner ul li").css('width',window.innerWidth);
+    /*var bannerlen=$("#banner ul li").length;
+    //$("#banner ul li").css('width',window.innerWidth);
     var bannerwidth=bannerlen * window.innerWidth;
     $("#banner ul").css('width',bannerwidth);
 
     var runbanner=setTimeout(function () {
-        /*往返效果*/
+        *//*往返效果*//*
         if(gl.i<bannerlen){
         }
-        /*循环效果*/
+        *//*循环效果*//*
         $("#banner ul li").eq(0).css('margin-left','-100%');
 
         setTimeout(function(){
@@ -33,7 +32,7 @@ window.onload= function () {
 
         },3000);
         setTimeout(arguments.callee,3000);
-    },3000);
+    },3000);*/
 
     /*$("#banner ul").delegate('li','mouseenter', function () {
         clearTimeout(runbanner);
@@ -42,7 +41,9 @@ window.onload= function () {
         setTimeout(runbanner);
     })*/
 
-    $("#favfoodul").delegate('i','click',function(){
+    $("#favfoodul").delegate('i','click',function(e){
+        e.stopPropagation();
+        e.cancelBubble=true;
         $(this).prev().css({'left':'0','margin-left':'0'});
     });
 
@@ -53,9 +54,9 @@ window.onload= function () {
     $("#favfoodul").delegate('h6','click',function(){
         $(this).next().slideToggle();
     });
-    $("#busblock").find("h6").click(function(){
+    /*$("#busblock").find("h6").click(function(){
         $(this).nextAll().slideToggle();
-    });
+    });*/
 
     /*$("#ideamain").focus(function(){
     	$(this).attr('rows','8');
@@ -98,8 +99,42 @@ window.onload= function () {
                 console.log(err);
             }
         })
+    });
 
-    })
+    /*提交设备维修*/
+    $("#maginesub").click(function(){
+        var ideaType=$("#maginesel option:selected").text();
+        var ideaCon=$("#maginemain").val();
+        var ideaAdd=$("#magineadd").val();
+        //alert(ideaType+ideaCon+ideaAdd);
+        $.ajax({
+            url:'../common/magine.php',
+            dataType:'json',
+            Type:'POST',
+            data:{
+                ideaType:ideaType,
+                ideaCon:ideaCon,
+                ideaAdd:ideaAdd
+            },
+            success:function(data){
+                console.log(data);
+                if(data==1){
+                    alert("您的建议已提交");
+                    $("#maginemain").val('');
+                    $("#magineadd").val('');
+                    $(this).attr('rows','2');
+                }else if(data==2){
+                    alert("请检查空项");
+                }else if(data==0){
+                    alert("提交失败");
+                }
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        })
+
+    });
 
     var gonggaorun=setTimeout(function(){
         $("#gonggao ul li").eq(0).appendTo("#gonggao ul");
@@ -173,7 +208,7 @@ window.onload= function () {
                         favfoodli.setAttribute('class','col-md-3');
                         var favfoodimg=document.createElement("img");
 
-                        var src=item['url'];
+                        var src=item['url'].substring(9);
                         favfoodimg.setAttribute('src',src);
                         favfoodli.appendChild(favfoodimg);
 
@@ -209,4 +244,39 @@ window.onload= function () {
         })
     }
     favfood();
+
+    /*点赞*/
+    $("#favfoodul").delegate('li span button:first-child','click',function(e){
+        e.stopPropagation();
+        e.cancelBubble=true;
+        var url=$(this).parent().parent().find('img').attr('src');
+        //alert(url);
+        $.ajax({
+            url:'management/php/get/clickzan.php',
+            dataType:'text',
+            Type:'POST',
+            data:{
+                'url':url
+            },
+            success: function (data) {
+                console.log(data);
+                if(data==1){
+                    alert("点赞成功");
+                }else{
+                    alert("点赞失败");
+                }
+            },
+            error: function (err) {
+                console.log(err);
+
+            }
+        })
+    });
+
+    /*点击跳转展示页*/
+    $("#favfoodul").delegate('li','click',function(){
+        var favdetailurl=$(this).find('img').attr('src');
+        sessionStorage.setItem('favfooddetailurl',favdetailurl);
+        window.location.href='management/favfood_detail.html';
+    })
 };

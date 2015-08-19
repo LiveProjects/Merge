@@ -27,7 +27,7 @@ window.onload= function () {
     		gl.caiming.value=gl.dishname.value;
     		gl.jiehsao.value=gl.favCon.value;
     		
-    		alert(gl.caiming.value+gl.jiehsao.value);
+    		//alert(gl.caiming.value+gl.jiehsao.value);
     	}else{
     		alert("请检查空项");
     	}
