@@ -8,7 +8,7 @@ $init ['emp_name'] = $_SESSION ['user'] ['name'];
 $init ['com_name'] = $_SESSION ['user'] ['companyname'];
 $init ['sec_name'] = $_SESSION ['user'] ['sectionname'];
 $date=$_GET['date'].' 00:00:00';//日期
-// $date = "2015-08-20 00:00:00";
+//$date = "2015-08-20 00:00:00";
 if (isset ( $init ['emp_name'] ) && isset ( $init ['com_name'] ) && isset ( $init ['sec_name'] )) {
 	if (isset ( $date )) {
 		// 查询登录者的联系方式
@@ -25,7 +25,7 @@ if (isset ( $init ['emp_name'] ) && isset ( $init ['com_name'] ) && isset ( $ini
 		$sql_room_state = "select FRoomID,FStartTime,FEndTime from t_hs_meetingroom_reserv where FRDate='{$date}'";
 		$res_room_state = $db->execsql ( $sql_room_state );
 		// echo $sql_room_state;die;
-		print_r ( $res_room_state );
+		//print_r ( $res_room_state );
 		//查询每个会议室已预约的时间段
 		foreach ( $init ['room'] as $key_init => $val_init ) {
 			foreach ( $res_room_state as $key_room => $val_room ) {
@@ -36,7 +36,7 @@ if (isset ( $init ['emp_name'] ) && isset ( $init ['com_name'] ) && isset ( $ini
 				}
 			}
 		}
-		// print_r($init);die;
+//		print_r($init);die;
 		echo json_encode($init);
 		 /*
 		 * 预约提交数据库

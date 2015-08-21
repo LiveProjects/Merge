@@ -19,3 +19,9 @@
 #meetingroomBooktop img {
   width: 100%;
 }
+#meetingpanel table {
+  text-align: center;
+}
+#meetingpanel table tbody tr td:hover {
+  background-color: #9d9d9d;
+}

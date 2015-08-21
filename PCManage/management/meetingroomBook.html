@@ -27,38 +27,70 @@
         <button class="btn btn-success pull-right" id="meetingroomBookbtn">确定</button>
     </div>
 
-    <div class="col-md-10 col-md-offset-1">
+    <div class="col-md-12 well" id="meetingpanel">
         <h4 class="panel-heading h4">会议室使用状况</h4>
         <table class="table col-md-12">
-            <thead>
+            <thead class="table-responsive">
             <tr>
-                <th>提报人</th>
+                <!--<th>提报人</th>
                 <th>时间</th>
                 <th>日期</th>
                 <th>人数</th>
                 <th>地点</th>
-                <th>备注</th>
+                <th>备注</th>-->
+                <th>会议室名</th>
+                <th>可容纳人数</th>
+                <th>08:00</th>
+                <th>08:30</th>
+                <th>09:00</th>
+                <th>9:30</th>
+                <th>10:00</th>
+                <th>10:30</th>
+                <th>11:00</th>
+                <th>11:30</th>
+                <th>12:00</th>
+                <th>12:30</th>
+                <th>13:00</th>
+                <th>13:30</th>
+                <th>14:00</th>
+                <th>14:30</th>
+                <th>15:00</th>
+                <th>15:30</th>
+                <th>16:00</th>
+                <th>16:30</th>
+                <th>17:00</th>
+                <th>17:30</th>
+                <th>18:00</th>
+                <th>18:30</th>
+                <th>19:00</th>
+                <th>19:30</th>
+                <th>20:00</th>
             </tr>
             </thead>
+            <tbody id="meetingroomtbody">
+
+            </tbody>
         </table>
     </div>
 
     <div class="col-md-10 col-md-offset-1 well">
         <h4 class="h4 panel-heading">会议室预约</h4>
         <label for="" class="label-info control-label label">姓名</label>
-        <input type="text" class="form-control"/>
+        <input type="text" class="form-control" id="name"/>
         <label for="" class="">电话</label>
-        <input type="text" class="form-control"/>
-        <label for="" class="">公司部门</label>
-        <input type="text" class="form-control"/>
-        <label for="" class="">使用日期</label>
-        <input type="text" class="form-control"/>
+        <input type="text" class="form-control" id="phone"/>
+        <label for="" class="">公司</label>
+        <input type="text" class="form-control" id="section"/>
+        <label for="" class="">部门</label>
+        <input type="text" class="form-control" id="datetime"/>
+        <label for="" class="">电话</label>
+        <input type="text" class="form-control" id="meetroom"/>
         <label for="" class="">使用人数</label>
-        <input type="text" class="form-control"/>
+        <input type="text" class="form-control" id="num"/>
         <label for="" class="">开始时间</label>
-        <input type="text" class="form-control"/>
+        <input type="text" class="form-control" id="starttime"/>
         <label for="" class="">结束时间</label>
-        <input type="text" class="form-control"/>
+        <input type="text" class="form-control" id="endtime"/>
 
         <button class="btn btn-info pull-right" id="meetingroomBooksub">提交</button>
         <button class="btn btn-danger pull-right" id="meetingroomBookreset">重置</button>
