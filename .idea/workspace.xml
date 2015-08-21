@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7bfaee2f-8bb6-41fc-a3e0-459bc5fba3c7" name="Default" comment="" />
+    <list default="true" id="7bfaee2f-8bb6-41fc-a3e0-459bc5fba3c7" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PCManage/management/php/get/meetingroombook.php" afterPath="$PROJECT_DIR$/PCManage/management/php/get/meetingroombook.php" />
+    </list>
     <ignored path="merge.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -76,7 +78,7 @@
       <file leaf-file-name="meetingroombook.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PCManage/management/php/get/meetingroombook.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.585086" vertical-offset="829" max-vertical-offset="1898">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3016">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
@@ -865,7 +867,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PCManage/management/php/get/meetingroombook.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.585086" vertical-offset="829" max-vertical-offset="1898">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3016">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
