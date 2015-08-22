@@ -6,9 +6,9 @@ session_start ();
 $init = array ();
 $init ['emp_name'] = $_SESSION ['user'] ['name'];
 $init ['com_name'] = $_SESSION ['user'] ['companyname'];
-// $date=$_GET['date'].' 00:00:00';//日期
+$date=$_GET['date'].' 00:00:00';//日期
 //echo $_GET['date'];die();
-$date = "2015-08-21 00:00:00";
+//$date = "2015-08-21 00:00:00";
 if (isset ( $init ['emp_name'] ) && isset ( $init ['com_name'] ) ) {
 	if (isset ( $date )) {
 		// 查询登录者的联系方式
@@ -40,7 +40,7 @@ if (isset ( $init ['emp_name'] ) && isset ( $init ['com_name'] ) ) {
 				}
 			}
 		}
-		print_r($init);die();
+		//print_r($init);die();
 		/*
 		 * 点击预约按钮，将预约数据提交到数据库$_GET['type']='submit'
 		 */

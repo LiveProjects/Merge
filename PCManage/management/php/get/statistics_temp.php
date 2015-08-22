@@ -61,7 +61,10 @@ if ($type == 'web') {
  */
 
 // $type='excel';
+
+//echo $_GET['com_name'].$_GET['start'].$_GET['end'].$_GET['type'];die();
 if ($type == 'excel') {
+
 	require_once '../../../common/PHPExcel/PHPExcel.php';
 	$objPHPExcel = new PHPExcel ();
 	

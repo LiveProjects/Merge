@@ -16,10 +16,41 @@ window.onload= function () {
     /*上传文件*/
     gl.uploadimg.onclick= function () {
         gl.upbox.click();
+        //alert(gl.upbox.value);
     };
+
+    function createObjectURL(blob) {
+        if(window.URL){
+            return window.URL.createObjectURL(blob);
+        }else if(window.webkitURL){
+            return window.webkitURL.createObjectURL(blob);
+        }else{
+            return;
+        }
+    };
+    if(typeof FileReader==='undefined'){
+        result.innerHTML = "抱歉，你的浏览器不支持 FileReader";
+        input.setAttribute('disabled','disabled');
+    }else{
+        gl.upbox.addEventListener('change',function(){
+            var file = this.files[0];
+            if(!/image\/\w+/.test(file.type)){
+                alert("文件必须为图片！");
+                return false;
+            };
+            var reader = new FileReader();
+            reader.readAsDataURL(file);
+            //console.log(reader);
+            reader.onload = function(e){
+                //result.innerHTML = '<img src="'+this.result+'" alt=""/>'
+                gl.uploadimg.setAttribute('src',this.result);
+            };
+
+        },false);
+    }
+
     gl.uploadbtn.onclick=function(){
-    	
-    	
+
     	var name=$("dishname").val();
     	var dishintro=$("favCon").val();
     	

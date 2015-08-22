@@ -90,7 +90,7 @@ window.onload= function () {
     });
 
     /*输入检测*/
-    $("#checkBookmain ul").delegate('li input','input propertychange', function () {
+    /*$("#checkBookmain ul").delegate('li input','input propertychange', function () {
         $(this).attr('disabled','disabled');
         $(this).val($(this).val().slice(0,-1));
         var that=$(this);
@@ -100,7 +100,7 @@ window.onload= function () {
         var time=setTimeout(function () {
             that.removeAttr('disabled');
         },1000)
-    });
+    });*/
 
     /*班车记录查询*/
     $.ajax({

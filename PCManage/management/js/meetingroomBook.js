@@ -213,7 +213,8 @@ window.onload= function () {
                     alert("请检查空项");
                 }else if(data.error==5){
                     alert("预约时间为早8：00~下午8:00");
-
+                }else if(data.error==6){
+                    alert("预约人数超过会议室所能容纳人数");
                 }
             },
             error:function(err){
