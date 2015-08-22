@@ -6,9 +6,9 @@ session_start ();
 $init = array ();
 $init ['emp_name'] = $_SESSION ['user'] ['name'];
 $init ['com_name'] = $_SESSION ['user'] ['companyname'];
-$date=$_GET['date'].' 00:00:00';//日期
+// $date=$_GET['date'].' 00:00:00';//日期
 //echo $_GET['date'];die();
-//$date = "2015-08-21 00:00:00";
+$date = "2015-08-21 00:00:00";
 if (isset ( $init ['emp_name'] ) && isset ( $init ['com_name'] ) ) {
 	if (isset ( $date )) {
 		// 查询登录者的联系方式
@@ -40,7 +40,7 @@ if (isset ( $init ['emp_name'] ) && isset ( $init ['com_name'] ) ) {
 				}
 			}
 		}
-//		print_r($init);die();
+		print_r($init);die();
 		/*
 		 * 点击预约按钮，将预约数据提交到数据库$_GET['type']='submit'
 		 */
@@ -78,20 +78,35 @@ if (isset ( $init ['emp_name'] ) && isset ( $init ['com_name'] ) ) {
 				$start = strtotime ( $room ['FRDate'] . ' ' . $room ['FStartTime'] ); // 用户传入的起始时间
 				$end = strtotime ( $room ['FRDate'] . ' ' . $room ['FEndTime'] ); // 用户传入的终止时间
 				$flag = true;
+				//判断预约时间是否冲突
 				if (($start >= $day_start) && ($end <= $day_end)) {
-					foreach ( $res_room_state as $key_state => $val_state ) {
-						$starttime = strtotime ( $room ['FRDate'] . ' ' . $val_state ['FStartTime'] ); // 数据库中的起始时间
-						$endtime = strtotime ( $room ['FRDate'] . ' ' . $val_state ['FEndTime'] ); // 数据库中的终止时间
-						if (! (($end < $starttime) || ($start > $endtime))) {
-							$flag = false;
-							$init ['error'] = 3; // 预约时间冲突，请重新填写
-							break;
+					foreach ( $init['room'] as $key_r => $val_r ) {
+						if (($room ['FRoomID']==$init['room'][$key_r]['FID'])&&(!empty($val_r['Time']))){
+							foreach ($val_r['Time'] as $key_time=>$val_time){
+								$starttime = strtotime ( $room ['FRDate'] . ' ' . $val_time ['FStartTime'] ); // 数据库中的起始时间
+								$endtime = strtotime ( $room ['FRDate'] . ' ' . $val_time ['FEndTime'] ); // 数据库中的终止时间
+								if (! (($end < $starttime) || ($start > $endtime))) {
+									$flag = false;
+									$init ['error'] = 3; // 预约时间冲突，请重新填写
+									break;
+								}
+							}
+							
 						}
+						
 					}
 				} else {
 					$flag = false;
 					$init ['error'] = 5; // 预约时间为早8：00~下午8:00
 				}
+				//判断使用人数是否超过所预约会议室容纳的人数
+				$sql_room_num="select FNum from t_hs_meetingroom where FID='{$room ['FRoomID']}'";//查询所预约会议室的容纳人数
+				$res_room_num=$db->getrow($sql_room_num);
+				if ($res_room_num['FNum']<$room ['FNum']){
+					$flag=false;
+					$init['error']=6;//预约人数超过会议室所能容纳人数
+				}
+				//满足条件，向数据库插入数据
 				if ($flag) {
 					$insert = $db->insert ( 't_hs_meetingroom_reserv', $room );
 					if ($insert) {
