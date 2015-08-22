@@ -29,9 +29,9 @@ window.onload= function () {
                 data.forEach(function (item, index, attr) {
                     var div=
                         "<div class='col-md-10 col-md-offset-1 well'>"+
-                        "<label for='' class='control-label'>乘车日期:</label>"+
+                        "<label for='' class='form-control' style='background-color: inherit;border: none;'>乘车日期:</label>"+
                         "<input type='text' class='form-control' value='"+item['FRDate']+"' disabled/>"+
-                        "<label for='' class='control-label'>人数统计</label>"+
+                        "<label for='' class='form-control' style='background-color: inherit;border: none;'>人数统计</label>"+
                         "<input type='text' class='form-control' value='"+item['FNum']+"' disabled/>"+
                         "<table class='table'>"+
                         "<thead>"+
@@ -57,13 +57,51 @@ window.onload= function () {
                         "</table>"+
                         "</div>";
                     $('#showmain').append(div);
-                })
+
+
+
+
+                });
+
+
+
+
 
             },
             error: function (err) {
                 console.log(err);
             }
         })
+    });
+
+    /*导出Excel*/
+    $("#button").click(function(){
+        var com_name=$("#comname").val();
+        var start=$("#starttime").val();
+        var end=$("#endtime").val();
+
+        window.location.href="php/get/statistics_temp.php?com_name="+com_name+"&&start="+start+"&&end="+end+"&&type=excel";
+
+        /*$.ajax({
+         url:'php/get/statistics_temp.php',
+         dataType:'json',
+         Type:'POST',
+         data:{
+         'com_name':com_name,
+         'start':start,
+         'end':end,
+         'type':'excel'
+         },
+         success: function (data) {
+         console.log(data);
+         },
+         error:function(err){
+         console.log(err);
+         },
+         finish: function () {
+         //..
+         }
+         });*/
     });
 
 };
