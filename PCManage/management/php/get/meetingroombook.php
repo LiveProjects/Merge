@@ -6,20 +6,21 @@ session_start ();
 $init = array ();
 $init ['emp_name'] = $_SESSION ['user'] ['name'];
 $init ['com_name'] = $_SESSION ['user'] ['companyname'];
-// $date=$_GET['date'].' 00:00:00';//日期
-//echo $_GET['date'];die();
-$date = "2015-08-21 00:00:00";
-if (isset ( $init ['emp_name'] ) && isset ( $init ['com_name'] ) ) {
+$date=$_GET['date'].' 00:00:00';//日期
+// echo $_GET['date'];die();
+// $date = "2015-08-21 00:00:00";
+if (isset ( $init ['emp_name'] ) && isset ( $init ['com_name'] )) {
 	if (isset ( $date )) {
+// 		echo '123';
 		// 查询登录者的联系方式
 		$sql_phone = "select FPhone from t_hs_employee where FNumber='{$_SESSION['user']['number']}'";
 		$res_phone = $db->getrow ( $sql_phone );
-//		echo $sql_phone;die;
+		// echo $sql_phone;die;
 		$init ['phone'] = $res_phone ['FPhone'];
-		//查询部门信息
-		$sql_sec="select FName from t_hs_section where FCompanyID='{$_SESSION['user']['companyID']}' ";
-		$res_sec=$db->execsql($sql_sec);
-		$init['sec']=$res_sec;
+		// 查询部门信息
+		$sql_sec = "select FName from t_hs_section where FCompanyID='{$_SESSION['user']['companyID']}' ";
+		$res_sec = $db->execsql ( $sql_sec );
+		$init ['sec'] = $res_sec;
 		
 		// 查询各个会议室的名称、可容纳人数
 		$sql_room = "select * from t_hs_meetingroom";
@@ -40,73 +41,78 @@ if (isset ( $init ['emp_name'] ) && isset ( $init ['com_name'] ) ) {
 				}
 			}
 		}
-		print_r($init);die();
+// 		print_r ( $init );die ();
 		/*
 		 * 点击预约按钮，将预约数据提交到数据库$_GET['type']='submit'
 		 */
-		$type = $_GET ['type'];
-// 		$type='submit';
+// 		$type = $_GET ['type'];
+		$type='submit';
 		if ($type == 'submit') {
 			$room = array ();
 			$room ['FRDate'] = $_GET ['date']; // 预约日期
 // 			$room['FRDate']="2015-08-21";//预约日期
 			$room ['FNumber'] = $_SESSION ['user'] ['number'];
-			$room['FDate']=date('Y-m-d H:i:s',time());
+			$room ['FDate'] = date ( 'Y-m-d H:i:s', time () );
 // 			$room['FNum']=7;
-// 			$room['FStartTime']='11:30';
-// 			$room['FEndTime']='11:50';
+// 			$room['FStartTime']='11:20';
+// 			$room['FEndTime']='13:50';
 // 			$room_name='A3-102';
 // 			$sec_name='信息研发部1';
 			$room ['FNum'] = $_GET ['FNum'];
 			$room ['FStartTime'] = $_GET ['FStartTime'];
 			$room ['FEndTime'] = $_GET ['FEndTime'];
 			$room_name = $_GET ['room_name'];
-			$sec_name=$_GET['sec_name'];
-			if (isset ( $room ['FNum'] ) && isset ( $room ['FStartTime'] ) && isset ( $room ['FEndTime'] ) && isset ( $room_name )&&isset($sec_name)) {
+			$sec_name = $_GET ['sec_name'];
+			if (!(empty ( $room ['FRDate'] ) || empty ( $room ['FNum'] ) || empty ( $room ['FStartTime'] ) || empty ( $room ['FEndTime'] ) || empty ( $room_name ) || empty ( $sec_name ))) {
+// 				echo "234";
 				// 查询出预约的会议室的ID
 				$sql_room_id = "select FID from t_hs_meetingroom where FName='{$room_name}'";
 				$res_room_id = $db->getrow ( $sql_room_id );
 				$room ['FRoomID'] = $res_room_id ['FID'];
-				//查询出所选部门的ID
-				$sql_sec_id="select FID from t_hs_section where FName='{$sec_name}'";
-				$res_sec_id=$db->getrow($sql_sec_id);
-				$room['FSectionID']=$res_sec_id['FID'];
-// 				echo $room['FSectionID'];die;
+				// 查询出所选部门的ID
+				$sql_sec_id = "select FID from t_hs_section where FName='{$sec_name}'";
+				$res_sec_id = $db->getrow ( $sql_sec_id );
+				$room ['FSectionID'] = $res_sec_id ['FID'];
+				// echo $room['FSectionID'];die;
 				// 判断预约时间是否冲突
 				$day_start = strtotime ( $room ['FRDate'] . ' 08:00:00' ); // 预约时间：早8:00~晚8:00
 				$day_end = strtotime ( $room ['FRDate'] . ' 20:00:00' );
 				$start = strtotime ( $room ['FRDate'] . ' ' . $room ['FStartTime'] ); // 用户传入的起始时间
 				$end = strtotime ( $room ['FRDate'] . ' ' . $room ['FEndTime'] ); // 用户传入的终止时间
 				$flag = true;
-				//判断预约时间是否冲突
+				// 判断预约时间是否冲突
 				if (($start >= $day_start) && ($end <= $day_end)) {
-					foreach ( $init['room'] as $key_r => $val_r ) {
-						if (($room ['FRoomID']==$init['room'][$key_r]['FID'])&&(!empty($val_r['Time']))){
-							foreach ($val_r['Time'] as $key_time=>$val_time){
-								$starttime = strtotime ( $room ['FRDate'] . ' ' . $val_time ['FStartTime'] ); // 数据库中的起始时间
-								$endtime = strtotime ( $room ['FRDate'] . ' ' . $val_time ['FEndTime'] ); // 数据库中的终止时间
+					foreach ( $init ['room'] as $key_r => $val_r ) {
+						if (($room ['FRoomID'] == $init ['room'] [$key_r] ['FID']) && (! empty ( $val_r ['Time'] ))) {
+							foreach ( $val_r ['Time'] as $key_time => $val_time ) {
+// 								echo $room ['FRoomID'];
+								//获取已预约的起始时间和终止时间
+								$time2=explode('-', $val_time);
+								$val_start=$time2[0];
+								$val_end=$time2[1];
+								$starttime = strtotime ( $room ['FRDate'] . ' ' . $val_start ); // 数据库中的起始时间
+								$endtime = strtotime ( $room ['FRDate'] . ' ' . $val_end ); // 数据库中的终止时间
 								if (! (($end < $starttime) || ($start > $endtime))) {
 									$flag = false;
 									$init ['error'] = 3; // 预约时间冲突，请重新填写
 									break;
 								}
 							}
-							
 						}
-						
 					}
 				} else {
 					$flag = false;
 					$init ['error'] = 5; // 预约时间为早8：00~下午8:00
 				}
-				//判断使用人数是否超过所预约会议室容纳的人数
-				$sql_room_num="select FNum from t_hs_meetingroom where FID='{$room ['FRoomID']}'";//查询所预约会议室的容纳人数
-				$res_room_num=$db->getrow($sql_room_num);
-				if ($res_room_num['FNum']<$room ['FNum']){
-					$flag=false;
-					$init['error']=6;//预约人数超过会议室所能容纳人数
+				// 判断使用人数是否超过所预约会议室容纳的人数
+				$sql_room_num = "select FNum from t_hs_meetingroom where FID='{$room ['FRoomID']}'"; // 查询所预约会议室的容纳人数
+				$res_room_num = $db->getrow ( $sql_room_num );
+				if ($res_room_num ['FNum'] < $room ['FNum']) {
+					$flag = false;
+					$init ['error'] = 6; // 预约人数超过会议室所能容纳人数
 				}
-				//满足条件，向数据库插入数据
+// 				print_r($init);die;
+				// 满足条件，向数据库插入数据
 				if ($flag) {
 					$insert = $db->insert ( 't_hs_meetingroom_reserv', $room );
 					if ($insert) {
@@ -122,6 +128,6 @@ if (isset ( $init ['emp_name'] ) && isset ( $init ['com_name'] ) ) {
 	} else {
 		$init ['error'] = 2; // 请选择预约日期
 	}
-// 	print_r($init);die;
+	// print_r($init);die;
 	echo json_encode ( $init );
 }
