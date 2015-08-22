@@ -2,7 +2,7 @@ $(document).ready(function(){
 
     /*结构样式部分*/
     var div=document.createElement("div");
-    div.style.cssText='width:324px;display:none;position:absolute; top:0;bottom:0;left:0;right:0;margin:auto auto;z-index:100;height:280px';
+    div.style.cssText='width:324px;z-index:101;display:none;position:absolute; top:0;bottom:0;left:0;right:0;margin:auto auto;z-index:100;height:280px';
     div.setAttribute('class','well');
     div.setAttribute('id','datepanel');
     var h6=document.createElement('h6');
@@ -67,8 +67,17 @@ $(document).ready(function(){
     var btntxt1=document.createTextNode('下个月');
     button1.appendChild(btntxt1);
 
+
+
     div.appendChild(button);
     div.appendChild(button1);
+
+    var shawow=document.createElement("div");
+    shawow.style.cssText="position:fixed;top:0;left:0;z-index:100;display:none;width:100%;background-color:#999999;opacity:0.7;";
+    shawow.style.height=window.innerHeight+"px";
+
+    document.body.appendChild(shawow);
+    document.body.appendChild(div);
 
 
 
@@ -84,7 +93,9 @@ $(document).ready(function(){
         $("#date").val(val);
         $("#datepanel h6").text('日期选择  '+val);
 
+        $(this).parent().parent().prev().slideUp(10);
         $(this).parent().parent().fadeOut(10);
+
     });
 
     $("body").delegate('#datepanel ul li','mouseenter',function (e) {
@@ -118,9 +129,10 @@ $(document).ready(function(){
 
 
     var inputs=document.getElementById('date');
-    document.body.appendChild(div);
+
 
     inputs.onfocus=function (e) {
+        $('#datepanel').prev().slideDown(200);
         $('#datepanel').fadeIn();
 
         /*var pagex=e.pageX;

@@ -57,37 +57,58 @@ window.onload= function () {
                     var tr=document.createElement("tr");
 
                     for(var i=0;i<27;i++){
-                        if(i==0){
-                            var td=document.createElement('td');
-                            var txt=document.createTextNode(item['FName']);
-                            td.appendChild(txt);
-                            tr.appendChild(td);
-                        }
-                        else if(i==1){
-                            var td=document.createElement('td');
-                            var txt=document.createTextNode(item['FNum']);
-                            td.appendChild(txt);
-                            tr.appendChild(td);
+                        if(index==0){
+                            if(i==0){
+                                var td=document.createElement('td');
+                                var txt=document.createTextNode(item['FName']);
+                                td.appendChild(txt);
+                                tr.appendChild(td);
+                            }
+                            else if(i==1){
+                                var td=document.createElement('td');
+                                var txt=document.createTextNode(item['FNum']);
+                                td.appendChild(txt);
+                                tr.appendChild(td);
+                            }else{
+                                var td=document.createElement('td');
+                                td.style.backgroundColor="red";
+                                var txt=document.createTextNode("有");
+                                td.appendChild(txt);
+                                tr.appendChild(td);
+                            }
                         }else{
-                            var td=document.createElement('td');
-                            var txt=document.createTextNode("空");
-                            td.appendChild(txt);
-                            tr.appendChild(td);
+                            if(i==0){
+                                var td=document.createElement('td');
+                                var txt=document.createTextNode(item['FName']);
+                                td.appendChild(txt);
+                                tr.appendChild(td);
+                            }
+                            else if(i==1){
+                                var td=document.createElement('td');
+                                var txt=document.createTextNode(item['FNum']);
+                                td.appendChild(txt);
+                                tr.appendChild(td);
+                            }else{
+                                var td=document.createElement('td');
+                                var txt=document.createTextNode("空");
+                                td.appendChild(txt);
+                                tr.appendChild(td);
+                            }
                         }
                     };
                     $("#meetingroomtbody").append(tr);
                 });
 
                 function link(a,b,index){
-//                    alert(a+"---"+b);
+                    //alert(a+"---"+b);
 
                     function makenum(num1){
                         var num=num1;
                         switch (num){
-                            case '8:00':return 3;break;
-                            case '8:30':return 4;break;
-                            case '9:00':return 5;break;
-                            case '9:30':return 6;break;
+                            case '08:00':return 3;break;
+                            case '08:30':return 4;break;
+                            case '09:00':return 5;break;
+                            case '09:30':return 6;break;
                             case '10:00':return 7;break;
                             case '10:30':return 8;break;
                             case '11:00':return 9;break;
@@ -119,7 +140,7 @@ window.onload= function () {
                     //alert(start+"---"+end);
                     //alert(index);
 //                    alert($("#meetingroomtbody").html());
-                    $("#meetingroomtbody tr").eq(index).find("td").slice(start-1,end-1).css('background-color','red').text('有');
+                    $("#meetingroomtbody tr").eq(index).find("td").slice(start-1,end).css('background-color','red').text('有');
 
                 }
 
@@ -129,14 +150,19 @@ window.onload= function () {
                     //console.log("---");
                     //console.log(a);
                     var val=[];
+                    var indexs=index;
+
                     if(a){
                         a.forEach(function(item,index,attr){
+                            //alert("---"+index+"---");
                             var one=item.split("-")[0];
                             var two=item.split("-")[1];
-                            link(one,two,index);
+                            link(one,two,indexs);
                             val.push(one,two);
                         });
                         console.log(val);
+                    }else{
+                        return;
                     }
                 });
 
@@ -165,7 +191,7 @@ window.onload= function () {
             Type:'POST',
             data:{
                 'type':'submit',
-                'date':dateval,
+                'date':$("#date").val(),
                 'sec_name':sec_name,
                 'FNum':FNum,
                 'FStartTime':FStartTime,
@@ -177,13 +203,16 @@ window.onload= function () {
 
                 if(data.error==1){
                     alert("预约成功");
-                }else if(data.error==2){
+                    $("#meetingroomtbody .selected").css('background-color','red').text('有');
+                }else if(data.error==0){
+                    alert("预约失败，请联系技术支持");
 
-                }else if(data.error==2){
-
-                }else if(data.error==2){
-
-                }else if(data.error==2){
+                }else if(data.error==3){
+                    alert("预约时间冲突，请重新填写");
+                }else if(data.error==4){
+                    alert("请检查空项");
+                }else if(data.error==5){
+                    alert("预约时间为早8：00~下午8:00");
 
                 }
             },
@@ -204,7 +233,6 @@ window.onload= function () {
     });
 
 
-
     /*行为处理*/
         var num= 0;
         window.paindex=0;
@@ -213,53 +241,64 @@ window.onload= function () {
         e.stopPropagation();
         e.cancelBubble=true;
 
-        if(num==0){//选取一个记录坐标值
-            $(this).addClass("selected");
-            $(this).siblings().removeClass("selected");
-            $(this).parent().siblings().find('td').removeClass("selected");
-            window.start=$(this).index();
-            window.paindex=$(this).parent().index();
-            num++;
-        }else{
-
-            var paindex1=$(this).parent().index();
-            //alert(window.paindex);
-            if(paindex==paindex1){//同行
-                var start1=$(this).index();
-                //alert(window.start);
-                if(window.start<start1){
-                    $(this).parent().find("td").slice(window.start,start1+1).addClass("selected");
-
-                    var starttime=$("#meetingroomthead").find("th").eq(window.start).text();
-                    var endtime=$("#meetingroomthead").find("th").eq(start1).text();
-                    $("#starttime").val(starttime);
-                    $("#endtime").val(endtime);
-                    $("#meetroom").val($(this).parent().find("td").eq(0).text());
-                }else if(window.start>=start1){
-                    var starttime=$("#meetingroomthead").find("th").eq(window.start).text();
-                    var endtime=$("#meetingroomthead").find("th").eq(start1).text();
-                    $(this).parent().find("td").slice(start1,window.start+1).addClass("selected");
-                    $("#starttime").val(endtime);
-                    $("#endtime").val(starttime);
-                    $("#meetroom").val($(this).parent().find("td").eq(0).text());
-                }
-                num=0;
-            }else{//不同行
+        if($(this).index()>1&&$(this).parent().index()>0){
+            if(num==0){//选取一个记录坐标值
+                $(this).parent().parent().prev().find("th").removeClass("selected");
                 $(this).addClass("selected");
                 $(this).siblings().removeClass("selected");
                 $(this).parent().siblings().find('td').removeClass("selected");
-                $("#starttime").val('');
-                $("#endtime").val('');
                 window.start=$(this).index();
                 window.paindex=$(this).parent().index();
-                num=0;
-            }
+                num++;
+            }else{
 
-            //alert($(this).parent().html());
+                var paindex1=$(this).parent().index();
+                //alert(window.paindex);
+                if(paindex==paindex1){//同行
+                    var start1=$(this).index();
+                    //alert(window.start);
+
+
+                    if(window.start<start1){
+                        $(this).parent().find("td").slice(window.start,start1+1).addClass("selected");
+                        $(this).parent().parent().prev().find("th").slice(window.start,start1+1).addClass("selected");
+
+                        var starttime=$("#meetingroomthead").find("th").eq(window.start).text();
+                        var endtime=$("#meetingroomthead").find("th").eq(start1).text();
+                        $("#starttime").val(starttime);
+                        $("#endtime").val(endtime);
+                        $("#meetroom").val($(this).parent().find("td").eq(0).text());
+                    }else if(window.start>=start1){
+                        var starttime=$("#meetingroomthead").find("th").eq(window.start).text();
+                        var endtime=$("#meetingroomthead").find("th").eq(start1).text();
+                        $(this).parent().find("td").slice(start1,window.start+1).addClass("selected");
+                        $(this).parent().parent().prev().find("th").slice(start1,window.start+1).addClass("selected");
+
+                        $(this).parent().parent().prev().find("th").slice(window.start,start1+1).addClass("selected");
+
+                        $("#starttime").val(endtime);
+                        $("#endtime").val(starttime);
+                        $("#meetroom").val($(this).parent().find("td").eq(0).text());
+                    }
+                    num=0;
+                }else{//不同行
+                    $(this).addClass("selected");
+                    $(this).siblings().removeClass("selected");
+                    $(this).parent().siblings().find('td').removeClass("selected");
+                    $(this).parent().parent().prev().find("th").removeClass("selected");
+                    $("#starttime").val('');
+                    $("#endtime").val('');
+                    window.start=$(this).index();
+                    window.paindex=$(this).parent().index();
+                    num=0;
+                }
+
+                //alert($(this).parent().html());
 //            if($(this).parent().has("td.selected")){
 //                alert(123);
 //                num=0;
 //            }
+            }
         }
 
     });
