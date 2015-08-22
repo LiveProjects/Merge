@@ -129,9 +129,9 @@ window.onload= function () {
                     "</div>"+
                     "<div>"+
                         "<label for=''>预定日期:</label>"+
-                        "<input type='text' disabled value='"+item['FRDate']+"'/>"+
+                        "<input type='text' class='selectdate' disabled value='"+item['FRDate']+"'/>"+
                         "<label for=''>预订时间:</label>"+
-                        "<input type='text' disabled value='"+item['FRTime']+"'/>"+
+                        "<input type='text' class='selecttime' disabled value='"+item['FRTime']+"'/>"+
                     "</div>"+
                     "<div>"+
                         "<label for=''>发车地点:</label>"+
@@ -150,11 +150,23 @@ window.onload= function () {
                 "</li>";
 
                 $("#checktempBusul").append(li);
-            })
+
+
+
+            });
+            /*日期选择*/
+            $(".selectdate").eq(0).prop('id','date');
+            $("body").delegate('.selectdate','focus',function(){
+                $(this).attr('id','date');
+            });
         },
         error: function (err) {
             console.log(err);
         }
-    })
+    });
+
+
+
+
 
 };

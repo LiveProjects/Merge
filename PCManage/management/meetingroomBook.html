@@ -31,13 +31,7 @@
         <h4 class="panel-heading h4">会议室使用状况</h4>
         <table class="table col-md-12">
             <thead class="table-responsive">
-            <tr>
-                <!--<th>提报人</th>
-                <th>时间</th>
-                <th>日期</th>
-                <th>人数</th>
-                <th>地点</th>
-                <th>备注</th>-->
+            <tr id="meetingroomthead">
                 <th>会议室名</th>
                 <th>可容纳人数</th>
                 <th>08:00</th>
@@ -81,16 +75,19 @@
         <input type="text" class="form-control" id="phone"/>
         <label for="" class="">公司</label>
         <input type="text" class="form-control" id="section"/>
-        <label for="" class="">部门</label>
+        <label for="" class="form-control" style="border: none; position: relative; background-color: inherit;padding-left: 0;">部门
+            <ul id="datetimeul">
+            </ul>
+        </label>
         <input type="text" class="form-control" id="datetime"/>
-        <label for="" class="">电话</label>
-        <input type="text" class="form-control" id="meetroom"/>
+        <label for="" class="">会议室</label>
+        <input type="text" class="form-control" id="meetroom" disabled/>
         <label for="" class="">使用人数</label>
         <input type="text" class="form-control" id="num"/>
         <label for="" class="">开始时间</label>
-        <input type="text" class="form-control" id="starttime"/>
+        <input type="text" class="form-control" id="starttime" disabled/>
         <label for="" class="">结束时间</label>
-        <input type="text" class="form-control" id="endtime"/>
+        <input type="text" class="form-control" id="endtime" disabled/>
 
         <button class="btn btn-info pull-right" id="meetingroomBooksub">提交</button>
         <button class="btn btn-danger pull-right" id="meetingroomBookreset">重置</button>

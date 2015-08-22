@@ -7,13 +7,14 @@ $init = array ();
 $init ['emp_name'] = $_SESSION ['user'] ['name'];
 $init ['com_name'] = $_SESSION ['user'] ['companyname'];
 $date=$_GET['date'].' 00:00:00';//日期
-// $date = "2015-08-21 00:00:00";
+//echo $_GET['date'];die();
+//$date = "2015-08-21 00:00:00";
 if (isset ( $init ['emp_name'] ) && isset ( $init ['com_name'] ) ) {
 	if (isset ( $date )) {
 		// 查询登录者的联系方式
 		$sql_phone = "select FPhone from t_hs_employee where FNumber='{$_SESSION['user']['number']}'";
 		$res_phone = $db->getrow ( $sql_phone );
-		// echo $sql_phone;die;
+//		echo $sql_phone;die;
 		$init ['phone'] = $res_phone ['FPhone'];
 		//查询部门信息
 		$sql_sec="select FName from t_hs_section where FCompanyID='{$_SESSION['user']['companyID']}' ";
@@ -39,6 +40,7 @@ if (isset ( $init ['emp_name'] ) && isset ( $init ['com_name'] ) ) {
 				}
 			}
 		}
+//		print_r($init);die();
 		/*
 		 * 点击预约按钮，将预约数据提交到数据库$_GET['type']='submit'
 		 */

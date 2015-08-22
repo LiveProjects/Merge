@@ -113,7 +113,7 @@ window.onload= function () {
                             "<label for=''>预定日期:</label>"+
                             "<input type='text' disabled value='2015-9-1'/>"+
                             "<label for=''>预订时间:</label>"+
-                            "<input type='text' disabled value='9:00'/>"+
+                            "<input type='text' class='selecttime' disabled value='9:00'/>"+
                         "</div>"+
                         "<div>"+
                             "<label for=''>预定地点:</label>"+
@@ -125,7 +125,7 @@ window.onload= function () {
                         "</div>"+
                     "</li>";
 
-                $("#checkBusul").append(li);
+                $("#checktempBusul").append(li);
             })
         },
         error: function (err) {
