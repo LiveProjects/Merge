@@ -26,28 +26,28 @@ if (isset ( $init ['emp_name'] ) && isset ( $init ['com_name'] )) {
 	// $type = $_GET ['type'];
 	$type = 'submit';
 	if ($type == 'submit') {
-		$repair = array ();
-		$repair ['FNumber'] = $_SESSION ['user'] ['number'];
-		$repair ['FDate'] = date ( 'Y-m-d H:i:s', time () );
-		// $repair ['FLocation'] = $_GET ['FLocation']; // 具体位置
-		// $repair ['FProblem'] = $_GET ['FProblem']; // 存在问题
+		$report = array ();
+		$report ['FNumber'] = $_SESSION ['user'] ['number'];
+		$report ['FDate'] = date ( 'Y-m-d H:i:s', time () );
+		// $report ['FLocation'] = $_GET ['FLocation']; // 具体位置
+		// $report ['FProblem'] = $_GET ['FProblem']; // 存在问题
 		// $building_name = $_GET ['building_name']; // 楼号
 		// $sec_name = $_GET ['sec_name']; // 部门名称
-		$repair ['FLocation'] = '三楼'; // 具体位置
-		$repair ['FProblem'] = '空调出风口有问题'; // 存在问题
+		$report ['FLocation'] = '三楼'; // 具体位置
+		$report ['FProblem'] = '空调出风口有问题'; // 存在问题
 		$building_name = 'A1'; // 楼号
 		$sec_name = '信息研发部1';
-		if (isset ( $repair ['FLocation'] ) && isset ( $repair ['FProblem'] ) && isset ( $building_name ) && isset ( $sec_name )) {
+		if (isset ( $report ['FLocation'] ) && isset ( $report ['FProblem'] ) && isset ( $building_name ) && isset ( $sec_name )) {
 			// 查询楼号ID
 			$sql_building_id = "select FID from t_hs_building where FName='{$building_name}'";
 			$res_building_id = $db->getrow ( $sql_building_id );
-			$repair ['FBuildingID'] = $res_building_id ['FID'];
+			$report ['FBuildingID'] = $res_building_id ['FID'];
 			// 查询出所选部门的ID
 			$sql_sec_id = "select FID from t_hs_section where FName='{$sec_name}'";
 			$res_sec_id = $db->getrow ( $sql_sec_id );
-			$repair ['FSectionID'] = $res_sec_id ['FID'];
-			// echo $repair['FSectionID'];die;
-			$insert = $db->insert ( 't_hs_facility_repair', $repair );
+			$report ['FSectionID'] = $res_sec_id ['FID'];
+			// echo $report['FSectionID'];die;
+			$insert = $db->insert ( 't_hs_facility_report', $report );
 			if ($insert) {
 				$init ['error'] = 1; // 预约成功
 			} else {

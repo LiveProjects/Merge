@@ -6,8 +6,8 @@ session_start ();
 $init = array ();
 $init ['emp_name'] = $_SESSION ['user'] ['name'];
 $init ['com_name'] = $_SESSION ['user'] ['companyname'];
-// $date=$_GET['date'].' 00:00:00';//日期
-$date = "2015-08-21 00:00:00";
+$date=$_GET['date'].' 00:00:00';//日期
+// $date = "2015-08-21 00:00:00";
 if (isset ( $init ['emp_name'] ) && isset ( $init ['com_name'] ) ) {
 	if (isset ( $date )) {
 		// 查询登录者的联系方式
@@ -42,24 +42,24 @@ if (isset ( $init ['emp_name'] ) && isset ( $init ['com_name'] ) ) {
 		/*
 		 * 点击预约按钮，将预约数据提交到数据库$_GET['type']='submit'
 		 */
-// 		$type = $_GET ['type'];
-		$type='submit';
+		$type = $_GET ['type'];
+// 		$type='submit';
 		if ($type == 'submit') {
 			$room = array ();
-// 			$room ['FRDate'] = $_GET ['date']; // 预约日期
-			$room['FRDate']="2015-08-21";//预约日期
+			$room ['FRDate'] = $_GET ['date']; // 预约日期
+// 			$room['FRDate']="2015-08-21";//预约日期
 			$room ['FNumber'] = $_SESSION ['user'] ['number'];
 			$room['FDate']=date('Y-m-d H:i:s',time());
-			$room['FNum']=7;
-			$room['FStartTime']='11:30';
-			$room['FEndTime']='11:50';
-			$room_name='A3-102';
-			$sec_name='信息研发部1';
-// 			$room ['FNum'] = $_GET ['FNum'];
-// 			$room ['FStartTime'] = $_GET ['FStartTime'];
-// 			$room ['FEndTime'] = $_GET ['FEndTime'];
-// 			$room_name = $_GET ['room_name'];
-// 			$sec_name=$_GET['sec_name'];
+// 			$room['FNum']=7;
+// 			$room['FStartTime']='11:30';
+// 			$room['FEndTime']='11:50';
+// 			$room_name='A3-102';
+// 			$sec_name='信息研发部1';
+			$room ['FNum'] = $_GET ['FNum'];
+			$room ['FStartTime'] = $_GET ['FStartTime'];
+			$room ['FEndTime'] = $_GET ['FEndTime'];
+			$room_name = $_GET ['room_name'];
+			$sec_name=$_GET['sec_name'];
 			if (isset ( $room ['FNum'] ) && isset ( $room ['FStartTime'] ) && isset ( $room ['FEndTime'] ) && isset ( $room_name )&&isset($sec_name)) {
 				// 查询出预约的会议室的ID
 				$sql_room_id = "select FID from t_hs_meetingroom where FName='{$room_name}'";
@@ -105,6 +105,6 @@ if (isset ( $init ['emp_name'] ) && isset ( $init ['com_name'] ) ) {
 	} else {
 		$init ['error'] = 2; // 请选择预约日期
 	}
-	print_r($init);die;
-// 	echo json_encode ( $init );
+// 	print_r($init);die;
+	echo json_encode ( $init );
 }
