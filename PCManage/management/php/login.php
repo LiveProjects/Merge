@@ -23,7 +23,6 @@ if(empty($result)){
    $_SESSION['user']['companyID'] = $result['FCompanyID'];
    $_SESSION['user']['sectionID'] = $result['FSectionID'];
    
-   //��ѯ��˾�Ͳ�����Ϣ
    $sql = "select a.FName, b.FName,c.FName from t_hs_employee as a inner join t_hs_company as b on a.FCompanyID = b.FID inner join 
 	  t_hs_section as c on a.FSectionID = c.FID where a.FNumber = '".$username."'";
 	 //echo "sql:".$sql;
