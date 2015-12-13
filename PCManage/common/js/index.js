@@ -272,6 +272,9 @@ window.onload= function () {
             }
         })
     });
+    $('.carousel').carousel({
+        interval: 2000
+    });
 
     /*点击跳转展示页*/
     $("#favfoodul").delegate('li','click',function(){
