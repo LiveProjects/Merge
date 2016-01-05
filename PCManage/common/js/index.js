@@ -179,7 +179,7 @@ window.onload= function () {
             "<div id='warning' class='alert alert-warning alert-dismissible col-md-4 col-sm-4 col-xs-4 navbar-fixed-top container-fluid hidden' role='alert'>"+
             "<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>"+
             "<strong>Warning!</strong> Better check yourself, you're not looking too good."+
-            "</div>;";
+            "</div>";
 
         $("body").append(div);
     };
