@@ -304,7 +304,7 @@ body {
   font-size: 1rem;
   font-weight: bold;
   opacity: 0.8;
-  margin-bottom: 4px;
+  margin-bottom: 1px;
   background-color: #e38d13;
 }
 #parkList ul li:active {
