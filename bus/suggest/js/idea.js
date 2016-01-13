@@ -4,7 +4,6 @@
 
 window.onload= function () {
 
-
     $("#ideasub").click(function(){
         var ideaType=$("#ideasel option:selected").text();
         var ideaCon=$("#ideaCon").val();
@@ -22,17 +21,17 @@ window.onload= function () {
                 ideaAdd:ideaAdd
             },
             success:function(data){
-                console.log(data);
+                //console.log(data);
                 if(data==1){
-                    alert("您的建议已提交");
+                    $.alert("您的建议已提交");
                     $("#ideamain").val('');
                     $("#ideaadd").val('');
                     $(this).attr('rows','2');
                     $("#ideamain").find("textarea").val('');
                 }else if(data==2){
-                    alert("请检查空项");
+                    $.alert("请检查空项");
                 }else if(data==0){
-                    alert("提交失败");
+                    $.alert("提交失败");
                 }
             },
             error: function (err) {

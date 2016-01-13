@@ -128,7 +128,7 @@ window.onload=function(){
                     		var li=
                                 "<li>"+
         		                    "<div>"+
-        		                        "<label for=''>下车地点  <input type='text' value='"+resdata['check'][i]['FStop']+"'" +" disabled/></label>"/*+"<span>"+resdata['check'][i]['book_name']+"</span>"*/+
+        		                        "<label for=''>下车地点: <span>"+resdata['check'][i]['FStop']+"</span></label>"/*+"<span>"+resdata['check'][i]['book_name']+"</span>"*/+
         		                    "</div>"+
         		                    "<span>"+
         		                        "<div>"+
@@ -160,36 +160,38 @@ window.onload=function(){
     /*删除数据*/
     $("#mainShow ul").delegate("li b.de button",'click',function(){
         var that=$(this);
-        confirm_=confirm("确定删除此预约记录？");
-        if(confirm){
-        	 $.ajax({
-                 url:'../php/get/delBus.php',
-                 Type:'POST',
-                 dataType:'text',
-                 beforeSend:function(){
-                     //alert("要删除的日期是"+that.parent().parent().prev().find("div:last-child").find("p").text());
-                 },
-                 data:{
-                 		//姓名+加班日期
-                     //'name':gl.manameinput.value,
-                     'FRDate':that.parent().parent().prev().find("div:last-child").find("p").text()
-                 },
-                 success:function(data){
-                 	/*that.parent().parent().parent().remove();*/
-                     if(data==1){
-                     	alert("删除成功");
-                     	that.parent().parent().parent().remove();
-                     }else if(data==2){
-                    	 alert("请在每天下午5点之间删除记录");
-                     }else{
-                     	alert("删除失败，请联系技术支持");
-                     }
-                 },
-                 error:function(err){
-                     alert("删除不成功");
-                 }
-             })
-        }
+        var confirm;
+        $.confirm("确定删除此预约记录？",function(){
+            $.ajax({
+                url:'../php/get/delBus.php',
+                Type:'POST',
+                dataType:'text',
+                beforeSend:function(){
+                    //alert("要删除的日期是"+that.parent().parent().prev().find("div:last-child").find("p").text());
+                },
+                data:{
+                    //姓名+加班日期
+                    //'name':gl.manameinput.value,
+                    'FRDate':that.parent().parent().prev().find("div:last-child").find("p").text()
+                },
+                success:function(data){
+                    /*that.parent().parent().parent().remove();*/
+                    if(data==1){
+                        that.parent().parent().parent().animate({marginLeft:'500px'},600,function(){
+                            $.alert('删除成功');
+                            $(this).remove();
+                        })
+                    }else if(data==2){
+                        $.alert('请在每天下午5点之间删除记录');
+                    }else{
+                        $.alert('删除失败，请联系技术支持');
+                    }
+                },
+                error:function(err){
+                    $.alert('删除不成功');
+                }
+            })
+        });
     });
 
     /*用户名 工厂部门*/
@@ -217,7 +219,7 @@ window.onload=function(){
             //console.log(data);
         },
         error:function(err){
-            alert(err.status);
+            $.alert(err.status);
         },
         complete:function(){
             //console.log("OK");
@@ -234,13 +236,12 @@ window.onload=function(){
         sessionStorage.setItem('date',$(this).parent().parent().prev().find("div:last-child").find("p").text());
         //alert("临时数据为"+sessionStorage.getItem('name')+sessionStorage.getItem('date'));
 
-        /*初始填充值*/
+        /*初始填充值 严重错误,偶合度高,灵活性差,可拓展性差,以后再改*/
         sessionStorage.setItem('fixdate',$(this).parent().parent().prev().find("div:last-child").find("p").text());
         sessionStorage.setItem('fixtime',$(this).parent().parent().prev().find("div:first-child").find("p").text());
-        sessionStorage.setItem('fixadd',$(this).parent().parent().parent().children("div").find("input").val());
+        sessionStorage.setItem('fixadd',$(this).parent().parent().parent().children("div").find("span").text());
 
         //alert("初始化的数据为:"+sessionStorage.getItem('fixdate')+sessionStorage.getItem('fixtime')+sessionStorage.getItem('fixadd'));
-
         location.href="fixBus.html";
 
     });

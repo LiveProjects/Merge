@@ -2,12 +2,14 @@
  * Created by Administrator on 2015/7/27 0027.
  */
 window.onload=function(){
-
+    var parkList=document.getElementById("parkList");
+    var parkListul=document.getElementById("parkListul");
     gl={
         adddate:document.getElementById("fixdate").lastElementChild,
         addtimeUl:document.getElementById("fixtime").lastElementChild,
         parkOl:document.getElementById("fixname").lastElementChild.previousElementSibling,
         parkUl:document.getElementById("fixname").lastElementChild,
+        parkList:document.getElementById("parkList"),
         parkListul:document.getElementById("parkListul"),
         needname:sessionStorage.getItem('name'),
         downadddate:document.getElementById("adddateval"),
@@ -15,8 +17,7 @@ window.onload=function(){
         downaddpark:document.getElementById("parkval"),
         subfixbtn:document.getElementById("submitBtn"),
         randomcolor:function(){
-            var arr=['#843534','#66512c','#FF8F00','#c1e2b3'];
-            return arr;
+            return ['#843534','#66512c','#FF8F00','#c1e2b3'];
         },
         whichDay:new Date(),
         makeday:function(num){
@@ -43,7 +44,11 @@ window.onload=function(){
     };
     /*全局属性设置*/
     (function(){
+        gl.parkListul.style.height=gl.height+'px';
+        gl.parkList.style.height = gl.height+'px';
         parkListul.style.height=gl.height+'px';
+        console.log('lio'+gl.parkListul.style.height);
+
     })();
     /*********初始化个人数据********************************/
     (function(){
@@ -196,7 +201,7 @@ window.onload=function(){
             $("#fixname ul").hide();
 
             $("#fixname").find("b").text($("#fixname ol li").eq(0).text());
-            $(this).css('box-shadow','0 0 2px 4px #245269 inset');
+            $(this).css('box-shadow','0 0 4px 1px #245269 inset');
             $(this).siblings().css('box-shadow','none');
         }else if($(this).index()==$("#fixdate ul li").length-1){
             var valdate=$(this).text();
@@ -208,7 +213,7 @@ window.onload=function(){
             $("#fixname ul").show();
 
             $("#fixname").find("b").text($("#fixname ul li").eq(0).text());
-            $(this).css('box-shadow','0 0 2px 4px #245269 inset');
+            $(this).css('box-shadow','0 0 4px 1px #245269 inset');
             $(this).siblings().css('box-shadow','none');
 
         }
@@ -217,14 +222,14 @@ window.onload=function(){
         var valtime=$(this).text();
         //alert(valdate);
         $(this).parent().prev().find("b").text(valtime);
-        $(this).css('box-shadow','0 0 2px 4px #245269 inset');
+        $(this).css('box-shadow','0 0 4px 1px #245269 inset');
         $(this).siblings().css('box-shadow','none');
     });
     $("#park ol").delegate('li','click',function(){
         if($(this).text()!='其他'){
             var valpark=$(this).text();
             $(this).parent().prev().find("b").text(valpark);
-            $(this).css('box-shadow','0 0 2px 4px #245269 inset');
+            $(this).css('box-shadow','0 0 4px 1px #245269 inset');
             $(this).siblings().css('box-shadow','none');
         }
     });
@@ -232,7 +237,7 @@ window.onload=function(){
         if($(this).text()!='其他'){
             var valpark=$(this).text();
             $(this).parent().prev().find("b").text(valpark);
-            $(this).css('box-shadow','0 0 2px 4px #245269 inset');
+            $(this).css('box-shadow','0 0 4px 1px #245269 inset');
             $(this).siblings().css('box-shadow','none');
         }
     });
@@ -240,7 +245,7 @@ window.onload=function(){
         if($(this).text()!='其他'){
             var valpark=$(this).text();
             $(this).parent().prev().find("b").text(valpark);
-            $(this).css('box-shadow','0 0 2px 4px #245269 inset');
+            $(this).css('box-shadow','0 0 4px 1px #245269 inset');
             $(this).siblings().css('box-shadow','none');
         }
     });
@@ -248,16 +253,15 @@ window.onload=function(){
         var valparkList=$(this).text();
         //alert(valdate);
         $("#parkval").text(valparkList);
-        $(this).css('box-shadow','0 0 2px 4px #245269 inset');
+        $(this).css('box-shadow','0 0 4px 1px #245269 inset');
         $(this).siblings().css('box-shadow','none');
     });
 
     $("#fixname ol").delegate('li#showParklist','click',function(e){
-        //alert(13);
         e.stopPropagation();
         e.cancelBubble=true;
         $("#parkList").addClass("showlist");
-        $(this).css('box-shadow','0 0 2px 4px #245269 inset');
+        $(this).css('box-shadow','0 0 4px 1px #245269 inset');
         $(this).siblings().css('box-shadow','none');
     });
     /*隐藏边栏*/
@@ -292,7 +296,7 @@ window.onload=function(){
             success:function(data){
                 console.log(data);
                 if(data==1){
-                	alert("修改成功");
+                    $.alert("修改成功");
                 	window.location.href='managementBus.html';
 
                     $("#addtime ul li").css('box-shadow','none');
@@ -303,15 +307,15 @@ window.onload=function(){
                     $("#park b").text("");
 
                 }else if(data==0){
-                	alert("修改失败，请联系技术支持");
+                    $.alert("修改失败，请联系技术支持");
                 }else if(data==3){
-                	alert("请在每天下午5点之前修改记录");
+                    $.alert("请在每天下午5点之前修改记录");
                 }else{
-                	alert("请检查空项");
+                    $.alert("请检查空项");
                 }
             },
             error:function(err){
-                alert("请检查网络是否连接");
+                $.alert("请检查网络是否连接");
             }
         })
     };

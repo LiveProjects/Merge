@@ -3,7 +3,8 @@
  */
 $(document).ready(function(){
     var gl={
-        workdaytbody:document.getElementById("workdaytbody")
+        workdaytbody:document.getElementById("workdaytbody"),
+        windowH:window.innerHeight+'px'
     };
 
 
@@ -16,9 +17,10 @@ $(document).ready(function(){
             $("#searchBus >div").css('margin-top','10px');
         }
         if(tables.eq(0).css('display')=='none'&&tables.eq(1).css('display')=='none'&&tables.eq(2).css('display')=='none'){
-            $("#searchBus >div").css('margin-top','200px');
+            $("#searchBus >div").css('margin-top','auto');
         }
     });
+    $("#searchBus").css('height',gl.windowH);
 
     /*工作日常规班车查询数据获取*/
     $.ajax({

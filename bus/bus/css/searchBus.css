@@ -4,14 +4,23 @@
 }
 body {
   /*background-color: rgb(96,192,197);*/
+  padding-bottom: 14px;
 }
 #searchBus {
   width: 100%;
 }
+#searchBusin{
+  position: absolute;
+  top:0;
+  bottom:0;
+  right:0;
+  left:0;
+  margin: auto auto;
+  height: 330px;
+}
 #searchBus > div {
   width: 90%;
-  margin: 200px auto;
-  min-height: 330px;
+
   -webkit-transition: ease-out 0.2s;
   -moz-transition: ease-out 0.2s;
   -ms-transition: ease-out 0.2s;

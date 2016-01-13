@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=5; IE=8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+
+    <!--清除缓存-->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="stylesheet" href="../../common/css/alert.css">
     <link rel="stylesheet" href="../css/idea.css"/>
     <title></title>
 </head>
@@ -13,25 +19,142 @@
     <div>
         <label for="">类目</label>
         <select name="" id="ideasel">
-            <option value="XXX">XXXX</option>
-            <option value="XXX">XXXX</option>
-            <option value="XXX">XXXX</option>
-            
+            <option value="XXX">设备</option>
+            <option value="XXX">会议室</option>
+            <option value="XXX">其他</option>
         </select>
 
         <label for="">内容</label>
         <textarea name="ideaCon" id="ideaCon" cols="30" rows="8" placeholder="请提交建议"></textarea>
 
-        <label for="">备注</label>
-        <textarea name="ideaAdd" id="ideaAdd" cols="30" rows="2" placeholder="请填写备注"></textarea>
+        <label for="">上传图片</label>
+        <!--<textarea name="ideaAdd" id="ideaAdd" cols="30" rows="2" placeholder="请填写备注"><请填写备注/textarea>-->
+        <div>
+            <div class="btn-file" data-role="add">
+                <img src="../../common/img/upimg.png" alt="选择图片" />
+                <input id="ipt_file" type="file" accept="image/png,image/jpeg,image/jpg">
+            </div>
+        </div>
+        <ul id="pic_list">
 
-        <span>
-            <button id="ideasub">提交</button>
+        </ul>
+
+        <span class="btnGroup">
             <button id="ideaset">重置</button>
+            <button id="ideasub">提交</button>
         </span>
     </div>
 </div>
 </body>
 <script src="../../common/js/jquery-2.1.1.min.js"></script>
+<script src="../../common/js/jquery.alert.js"></script>
 <script src="../js/idea.js"></script>
+<script>
+window.upload_files = new Array();
+var show_imgs = new Array();
+var show_example_imgs = new Array();
+$(document).ready(function() {
+
+    $('#ipt_file').on('change', function() {
+        previewInImage(this);
+//        console.log(upload_files);
+//        console.log('start'+upload_files);
+    });
+
+    $('#ideasub').on('click', function() {
+        if (upload_files.length == 0) {
+            $.alert('请先添加要上传的图片');
+            return;
+        };
+
+        var uploadData = new FormData();
+        for (var i = 0; i < upload_files.length; i++) {
+            console.log(">>>>>>>>>>");
+            console.log(upload_files[i]);
+            uploadData.append('file', upload_files[i]);
+            console.log(uploadData['file0']);
+            console.log("<<<<<<<<<<");
+        }
+        console.log(uploadData['CustomField']);
+        $.ajax({
+            url: '../php/suggest_upload.php',
+            data: uploadData,
+            Type:'post',
+            processData: false,  // 告诉jQuery不要去处理发送的数据
+            contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
+            success: function(data) {
+                console.log(data);
+                $.alert('上传成功');
+            },
+            error: function(error) {
+                console.log(error);
+                $.alert('上传失败');
+            }
+        });
+    });
+
+    $('#pic_list img').click(function() {
+        var cur_img = $(this).attr('src');
+    });
+
+    $('.ui-ul-pics img').click(function() {
+        var cur_example_img = 'http://' + window.document.domain + $(this).attr('src');
+        $.alert('已上传,如需改动请先删除');
+    });
+
+});
+
+function deleteImage(tag) {
+    var li = tag.closest('li');
+    if (li) {
+        upload_files.splice(li.index(), 1);
+        li.remove();
+        collectShowImages();
+    }
+}
+
+function collectShowImages() {
+    show_imgs.length = 0;
+    $('#pic_list img').each(function(index) {
+        show_imgs.push($(this).attr('src'));
+    });
+}
+
+function collectShowExampleImages() {
+    show_example_imgs.length = 0;
+
+    $('.ui-ul-pics img').each(function(index) {
+        // 需要完整的带 http 协议的 image 的 url
+        show_example_imgs.push('http://' + window.document.domain + $(this).attr('src'));
+    });
+}
+
+function previewInImage(files) {
+    for (var i = 0; i < files.files.length; i++) {
+        var file = files.files[i];
+
+        var frd = new FileReader();
+        frd.onload = function(evt) {
+            var li = $('<li></li>').appendTo('#pic_list');
+            var div = $('<div class="select-img"></div>').appendTo(li);
+            var tag_i = $('<div class="btn-close"></div>').appendTo(li).bind("click", function() {
+                deleteImage($(this))
+            });
+            var img = $('<img src="' + evt.target.result + '" />').appendTo(div).click(function() {
+                $.alert('如果需要改动,请先删除');
+            });
+            collectShowImages();
+        };
+//        console.log('end'+file);
+
+        upload_files.push(file);
+//        console.log(upload_files);
+        frd.readAsDataURL(file);
+    }
+//    console.log(show_imgs);
+}
+
+collectShowImages();
+collectShowExampleImages();
+</script>
 </html>

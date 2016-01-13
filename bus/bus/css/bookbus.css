@@ -4,7 +4,7 @@
 }
 body {
   background-color: #60c0c5;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 #logo {
   position: absolute;
@@ -142,9 +142,9 @@ body {
   float: left;
   text-align: center;
   line-height: 36px;
-  font-size: 1.1rem;
+  font-size: 0.8rem;
   cursor: pointer;
-  margin-bottom: 4px;
+  margin-bottom: 1px;
 }
 #outLine #adddate ul li:active {
   background-color: deeppink;
@@ -187,7 +187,7 @@ body {
   float: left;
   text-align: center;
   line-height: 36px;
-  font-size: 1.1rem;
+  font-size: 0.8rem;
   cursor: pointer;
   margin-bottom: 4px;
 }
@@ -232,10 +232,8 @@ body {
   float: left;
   text-align: center;
   line-height: 36px;
-  font-size: 1.1rem;
-  margin-bottom: 2px;
+  font-size: 0.8rem;
   cursor: pointer;
-  margin-bottom: 4px;
 }
 #outLine #park ol li:active {
   background-color: deeppink;
@@ -267,16 +265,12 @@ body {
   display: block;
   width: 126px;
   height: 44px;
-  position: absolute;
-  bottom: 20px;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  border-radius: 4px;
+  margin: 14px auto;
+  border-radius: 2px;
   text-align: center;
   line-height: 44px;
   font-weight: bold;
-  font-size: 1.4em;
+  font-size: 1.2em;
   background-color: #3399ff;
   color: white;
 }
@@ -289,7 +283,8 @@ body {
   -ms-transition: ease-out 0.26s;
   -o-transition: ease-out 0.26s;
   transition: ease-out 0.26s;
-  right: -140px;
+  right: 0px;
+  display: none;
 }
 #parkList ul {
   width: 100%;
@@ -304,12 +299,12 @@ body {
   font-size: 1rem;
   font-weight: bold;
   opacity: 0.8;
-  margin-bottom: 4px;
-  background-color: #e38d13;
+  margin-bottom: 1px;
+  background-color: #444444;
 }
 #parkList ul li:active {
   opacity: 1;
 }
 .showlist {
-  right: 0!important;
+  display: block!important;
 }
