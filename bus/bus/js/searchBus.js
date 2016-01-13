@@ -17,7 +17,7 @@ $(document).ready(function(){
             $("#searchBus >div").css('margin-top','10px');
         }
         if(tables.eq(0).css('display')=='none'&&tables.eq(1).css('display')=='none'&&tables.eq(2).css('display')=='none'){
-            $("#searchBus >div").css({'margin-top':'auto'});
+            $("#searchBus >div").css('margin-top','auto');
         }
     });
     $("#searchBus").css('height',gl.windowH);
@@ -73,8 +73,6 @@ $(document).ready(function(){
         });
         return line;
     }
-
-
 
     /*工作日加班车查询*/
     $.ajax({

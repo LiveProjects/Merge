@@ -11,6 +11,7 @@ window.onload=function(){
     /***************防止污染全局对象********************8*/
     var gl={
         height:window.innerHeight,
+        width: window.innerWidth+'px',
         showParklist:document.getElementById("showParklist"),
         submitbtn:document.getElementById("submitBtn"),
         manameinput:document.getElementById("name").lastElementChild,
@@ -30,7 +31,7 @@ window.onload=function(){
 
         whichDay:new Date(),
         randomcolor:function(){
-            var arr=['#843534','#66512c','#FF8F00','#c1e2b3'];
+            var arr=['#FFFFFF','#FFFFFF','#FFFFFF','#FFFFFF'];
             return arr;
         },
         makeday:function(num){
@@ -125,9 +126,6 @@ window.onload=function(){
                 parkListulfragweek.appendChild(li);
             });
             gl.parkUl.appendChild(parkListulfragweek);
-
-
-
             /* 设置用户常用下车地点*/
             //alert(spot[0]['FName']);
             //测试
@@ -220,9 +218,7 @@ window.onload=function(){
                 },
                 success:function(data){
                     *//*if(data!=''){
-
                         console.log(data);
-
                         console.log("---company--");
                         console.log(data[0]['FName']);
                         var company=data[0]['FName'];
@@ -284,7 +280,6 @@ window.onload=function(){
         }
     });
 
-
     if(true) {
         gl.manamespan.style.top="-100%";
         gl.manamespan.style.fontSize="1.2rem";
@@ -293,7 +288,6 @@ window.onload=function(){
         gl.manamespan.style.fontWeight="bolder";
         //console.log(123);
     }
-
 
     /* 尝试function(xxx,successcallback,errorcallback){}*/
 
@@ -325,7 +319,7 @@ window.onload=function(){
             $("#park ul").hide();
 
             $("#park").find("b").text($("#park ol li").eq(0).text());
-            $(this).css('box-shadow','0 0 2px 4px #245269 inset');
+            $(this).css('box-shadow','0 0 4px 1px #245269 inset');
             $(this).siblings().css('box-shadow','none');
         }else if($(this).index()==$("#adddate ul li").length-1){
             var valdate=$(this).text();
@@ -337,7 +331,7 @@ window.onload=function(){
             $("#park ul").show();
 
             $("#park").find("b").text($("#park ul li").eq(0).text());
-            $(this).css('box-shadow','0 0 2px 4px #245269 inset');
+            $(this).css('box-shadow','0 0 4px 1px #245269 inset');
             $(this).siblings().css('box-shadow','none');
 
         }
@@ -349,28 +343,28 @@ window.onload=function(){
         var valtime=$(this).text();
         //alert(valdate);
         $(this).parent().prev().find("b").text(valtime);
-        $(this).css('box-shadow','0 0 2px 4px #245269 inset');
+        $(this).css('box-shadow','0 0 4px 1px #245269 inset');
         $(this).siblings().css('box-shadow','none');
     });
     $("#park ol").delegate('li','click',function(){
         if($(this).text()!='其他'){
             var valpark=$(this).text();
             $(this).parent().prev().find("b").text(valpark);
-            $(this).css('box-shadow','0 0 2px 4px #245269 inset');
+            $(this).css('box-shadow','0 0 4px 1px #245269 inset');
             $(this).siblings().css('box-shadow','none');
         }
     });
     $("#park ul").delegate('li','click',function(){
         var valpark=$(this).text();
         $(this).parent().parent().find("b").text(valpark);
-        $(this).css('box-shadow','0 0 2px 4px #245269 inset');
+        $(this).css('box-shadow','0 0 4px 1px #245269 inset');
         $(this).siblings().css('box-shadow','none');
     });
     $("#parkList ul").delegate('li','click',function(){
         var valparkList=$(this).text();
         //alert(valdate);
         $("#parkval").text(valparkList);
-        $(this).css('box-shadow','0 0 2px 4px #245269 inset');
+        $(this).css('box-shadow','0 0 4px 1px #245269 inset');
         $(this).siblings().css('box-shadow','none');
     });
 
@@ -378,7 +372,7 @@ window.onload=function(){
         //alert(13);
         e.stopPropagation();
         e.cancelBubble=true;
-        $(this).css('box-shadow','0 0 2px 4px #245269 inset');
+        $(this).css('box-shadow','0 0 4px 1px #245269 inset');
         $(this).siblings().css('box-shadow','none');
         $("#parkList").addClass("showlist");
     });
@@ -420,7 +414,7 @@ window.onload=function(){
         	success:function(data){
                 console.log(data);
                 if(data==1){
-                	alert("预约成功");
+                    $.alert("预约成功");
                     localStorage.setItem('usuallytime',gl.upaddtimeval.innerText);
 
                     $("#addtime ul li").css('box-shadow','none');
@@ -431,21 +425,17 @@ window.onload=function(){
                     $("#park b").text("");
 
                 }else if(data==2){
-                	alert("请检查空项");
+                    $.alert("请检查空项");
                 }else{
-                	alert("预约失败，请联系技术支持");
+                    $.alert("预约失败，请联系技术支持");
                 }
-                
-
         	},
         	complete:function(){
         		console.log("OK");
         	}
         })
     };
-    
 
-    
 /*
     	$.ajax({
     		url:'bookbus.php',

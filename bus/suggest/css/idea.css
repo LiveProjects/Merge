@@ -40,9 +40,12 @@ body {
 }
 #ideamain > div textarea {
   width: 100%;
-  border-top: none;
+  border-top: 1px solid #999999;
   box-sizing: border-box;
-  font-size: 1.6rem;
+  font-size: 1.3rem;
+  outline: none;
+  text-indet: 10px;
+  padding: 6px;
 }
 #ideamain > div > span {
   overflow: hidden;
@@ -50,8 +53,77 @@ body {
   width: auto;
   width: 200px;
   margin: 0 auto;
-  margin-top: 100px;
+  margin-top: 14px;
+  clear: both;
 }
 #ideamain > div > span button {
   padding: 8px 30px;
+  border: 1px dotted gray;
+  border-radius: 2px;
+}
+#ideamain > div > span button:last-child {
+  background-color: #39f;
+}
+
+.btn-file{
+  position: relative;
+  left: 10%;
+  margin: 20px 0px 0px 0px;
+  width: 80%;
+  display: inline-block;
+}
+.btn-file > img{
+  position: relative;
+  width: 50%;
+  left: 25%;
+  border: 1px solid rgba(0, 0, 0, .17);
+  vertical-align: top;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.btn-file > input{
+  position: absolute;
+  top: 0;
+  left: 25%;
+  width: 50%;
+  height: 100%;
+  opacity: .01;
+  filter: alpha(opacity=1);
+  cursor: pointer;
+}
+#pic_list {
+  width:100%;
+  margin: 10px 0;
+}
+#pic_list li{
+  width:25%;
+  position: relative;
+  float: left;
+  list-style: none;
+}
+#pic_list li > div:first-child{
+  width:100%;
+  overflow: hidden;
+}
+#pic_list li > div > img{
+  width: 100%;
+}
+
+.btn-close {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 16px;
+  height: 16px;
+  background-color: blue;
+  background-size: 16px 16px;
+}
+.select-img {
+  text-align: center;
+  text-align: center;
+  box-shadow: 1px -6px 17px -3px #888888;
+}
+.select-img > img {
+
 }

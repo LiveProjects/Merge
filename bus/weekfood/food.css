@@ -1,0 +1,22 @@
+*{
+    margin:0;
+    padding: 0;
+}
+#dishList > li{
+    width: 90%;
+    border: 1px dashed darkgray;
+    margin: 2px auto 14px;
+    list-style-type: none;
+
+}
+#dishList > li > img{
+    width: 36%;
+    vertical-align: top;
+}
+#dishList > li > span{
+    display: inline-block;
+    height: 100%;
+}
+#dishList > li > span > p{
+    vertical-align: bottom;
+}

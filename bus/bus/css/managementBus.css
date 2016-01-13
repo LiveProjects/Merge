@@ -4,6 +4,8 @@
 }
 body {
   background-color: #60c0c5;
+  padding-bottom: 20px;
+  overflow-x: hidden;
 }
 #logo {
   position: absolute;
@@ -83,8 +85,8 @@ body {
   min-height: 200px;
   list-style: none;
   margin-top: 20px;
-  border: 1px dotted #000000;
   background-color: white;
+  box-shadow: 1px 1px 14px -1px gray;
 }
 #mainShow ul li > div {
   width: 100%;
@@ -100,7 +102,7 @@ body {
 #mainShow ul li > div label input {
   border: none;
   outline: none;
-  font-size: 1.4rem;
+  font-size: 1rem;
   vertical-align: middle;
 }
 #mainShow ul li > span {
@@ -120,7 +122,7 @@ body {
   display: block;
   width: 100%;
   height: 32px;
-  background-color: blueviolet;
+  background-color: #666666;
   text-align: center;
   line-height: 32px;
   font-style: normal;
@@ -129,7 +131,7 @@ body {
   display: block;
   width: 100%;
   height: 68px;
-  background-color: #777777;
+  background-color: #999999;
   text-align: center;
   line-height: 68px;
   font-weight: bold;
@@ -161,9 +163,22 @@ body {
   border-radius: 4px;
   cursor: pointer;
 }
-#mainShow ul li > p b button:first-child {
-  background-color: #c3325f;
+#mainShow ul li > p b:first-child button {
+  background-color: #eea236;
+  opacity: 0.8;
+  font-weight: 300;
+  border: 1px dotted gray;
 }
-#mainShow ul li > p b button:last-child {
+#mainShow ul li > p b:last-child button {
   background-color: #39f;
+  opacity: 0.8;
+  font-weight: 300;
+  border: 1px dotted gray;
+}
+.remove{
+  transform: translate(500px,0);
+  -webkit-transform: translate(500px,0);
+  -o-transform: translate(500px,0);
+  -moz-transform: translate(500px,0);
+  -ms-transform: translate(500px,0);
 }

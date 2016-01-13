@@ -73,7 +73,7 @@ body {
   width: 220px;
   left: 120%;
   top: 0;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   color: white;
   text-align: left;
 }
@@ -122,9 +122,10 @@ body {
   width: 220px;
   left: 120%;
   top: 0;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   color: white;
   text-align: left;
+  font-weight: 300;
 }
 #fixname ol {
   width: 100%;
@@ -176,7 +177,8 @@ body {
   -ms-transition: ease-out 0.3s;
   -o-transition: ease-out 0.3s;
   transition: ease-out 0.3s;
-  right: -100px;
+  right: 0px;
+  display: none;
 }
 #parkList ul {
   width: 100%;
@@ -197,5 +199,5 @@ body {
   opacity: 1;
 }
 .showlist {
-  right: 0!important;
+  display: block !important;
 }
