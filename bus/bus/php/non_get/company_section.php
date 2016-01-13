@@ -8,7 +8,11 @@ $db = new DB ();
 session_start ();
 // $emp_num='0001';
 // $res = array ();
+<<<<<<< HEAD
 $_SESSION ['emp_number'] = '0001';
+=======
+$_SESSION['emp_number'] = '0001';
+>>>>>>> 3507425255d9e8975633a7357a3676026fcfbc4b
 if (isset ( $_SESSION ['emp_number'] )) {
 	$emp_num = $_SESSION ['emp_number'];
 	$sql_name_com = "SELECT b.FName as Company,a.FName as name,a.FSectionID as Section FROM t_hs_employee as a inner join t_hs_company as b on a.FCompanyID=b.FID WHERE a.FNumber = '{$emp_num}' ";
